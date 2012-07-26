@@ -3,50 +3,67 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
-    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <link href="../../css/style.css" rel="stylesheet" type="text/css" />
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.css" />
+    <!-- Bootstrap -->
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form runat="server">
-    <div class="page">
-        <div class="header">
-            <div class="title">
-                <h1>
-                    Mi aplicación ASP.NET
-                </h1>
+    <div class='cssmenu'>
+        <ul class="menu">
+            <li><a href="Default.aspx"><span>Inicio</span></a></li>
+            <li class='has-sub '><a href='#'><span>Reservaciones</span></a>
+                <ul>
+                    <li class='has-sub '><a href='?Reservacion/Reservar'><span>Hacer reservacion</span></a></li>
+                    <li class='has-sub '><a href='?Reservacion/Ver'><span>Ver reservaciones pendientes</span></a></li>
+                    <li class='has-sub '><a href='?Reservacion/Historial'><span>Historial de vuelos</span></a></li>
+                </ul>
+            </li>
+            <li><a href="About.aspx"><span>Acerca de nosotros</span></a></li>
+            <li><a href='About.aspx'><span>Contacto</span></a></li>
+        </ul>
+    </div>
+    <div class="container-fluid" id="content">
+        <div class="row-fluid">
+            <div class="span2" id="sidebar">
+                <ul class="the-icons">
+                    <li><i class="icon-glass"></i><a href="#">icon-glass</li>
+                    <li><i class="icon-music"></i><a href="#">icon-music</li>
+                    <li><i class="icon-search"></i><a href="#">icon-search</li>
+                    <li><i class="icon-envelope"></i><a href="#">icon-envelope</li>
+                    <li><i class="icon-heart"></i><a href="#">icon-heart</li>
+                    <li><i class="icon-star"></i><a href="#">icon-star</li>
+                    <li><i class="icon-star-empty"></i><a href="#">icon-star-empty</li>
+                    <li><i class="icon-user"></i><a href="#">icon-user</li>
+                    <li><i class="icon-film"></i><a href="#">icon-film</li>
+                    <li><i class="icon-home"></i><a href="#">icon-home</li>
+                    <li><i class="icon-file"></i><a href="#">icon-file</li>
+                    <li><i class="icon-time"></i><a href="#">icon-time</li>
+                    <li><i class="icon-road"></i><a href="#">icon-road</li>
+                    <li><i class="icon-download-alt"></i><a href="#">icon-download-alt</li>
+                    <li><i class="icon-download"></i><a href="#">icon-download</li>
+                    <li><i class="icon-upload"></i><a href="#">icon-upload</li>
+                    <li><i class="icon-inbox"></i><a href="#">icon-inbox</li>
+                    <li><i class="icon-play-circle"></i><a href="#">icon-play-circle</li>
+                    <li><i class="icon-repeat"></i><a href="#">icon-repeat</li>
+                    <li><i class="icon-refresh"></i><a href="#">icon-refresh</li>
+                    <li><i class="icon-list-alt"></i><a href="#">icon-list-alt</li>
+                    <li><i class="icon-lock"></i><a href="#">icon-lock</li>
+                    <li><i class="icon-flag"></i><a href="#">icon-flag</li>
+                    <li><i class="icon-headphones"></i><a href="#">icon-headphones</a></li>
+                </ul>
             </div>
-            <div class="loginDisplay">
-                <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
-                    <AnonymousTemplate>
-                        [ <a href="~/Account/Login.aspx" ID="HeadLoginStatus" runat="server">Iniciar sesión</a> ]
-                    </AnonymousTemplate>
-                    <LoggedInTemplate>
-                        Pantalla de bienvenida <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!
-                        [ <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Cerrar sesión" LogoutPageUrl="~/"/> ]
-                    </LoggedInTemplate>
-                </asp:LoginView>
+            <div class="span10" id="main">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server" />
             </div>
-            <div class="clear hideSkiplink">
-                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
-                    <Items>
-                        <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Página principal"/>
-                        <asp:MenuItem NavigateUrl="~/About.aspx" Text="Acerca de"/>
-                    </Items>
-                </asp:Menu>
-            </div>
-        </div>
-        <div class="main">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
-        </div>
-        <div class="clear">
         </div>
     </div>
-    <div class="footer">
-        
-    </div>
+    <footer> &copy; 2012 KSBSoftware. All Rights Reserved. </footer>
     </form>
 </body>
 </html>
