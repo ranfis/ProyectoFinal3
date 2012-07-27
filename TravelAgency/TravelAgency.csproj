@@ -71,12 +71,6 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <None Include="Web References\localhost\FlightService.disco" />
-    <Content Include="img\galeria\City-Wallpaper-11.jpg" />
-    <Content Include="img\galeria\City-Wallpaper-25.jpg" />
-    <Content Include="img\galeria\City-Wallpaper-28.jpg" />
-    <Content Include="img\galeria\City-Wallpaper-3.jpg" />
-    <Content Include="img\galeria\City-Wallpaper-4.jpg" />
-    <Content Include="img\galeria\City-Wallpaper-5.jpg" />
     <Content Include="img\logo.png" />
     <Content Include="jquery\css\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="jquery\css\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -180,6 +174,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="img\galeria\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Account\Web.config" />
