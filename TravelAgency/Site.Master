@@ -4,28 +4,30 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title></title>
-    <link href="../../css/style.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="../../bootstrap/css/bootstrap.css" />
     <!-- Bootstrap -->
-    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
-    </asp:ContentPlaceHolder>
+    <link href="../../css/style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <form runat="server">
     <div class='cssmenu'>
         <ul class="menu">
-            <li><a href="Default.aspx"><span>Inicio</span></a></li>
-            <li class='has-sub '><a href='#'><span>Reservaciones</span></a>
+            <li><a href="Default.aspx"><span class="con">Inicio</span></a></li>
+            <li class='has-sub '><a href='#'><span class="con">Reservaciones</span></a>
                 <ul>
-                    <li class='has-sub '><a href='?Reservacion/Reservar'><span>Hacer reservacion</span></a></li>
-                    <li class='has-sub '><a href='?Reservacion/Ver'><span>Ver reservaciones pendientes</span></a></li>
-                    <li class='has-sub '><a href='?Reservacion/Historial'><span>Historial de vuelos</span></a></li>
+                    <li class='has-sub '><a href='?Reservacion/Reservar'><span class="con">Hacer reservacion</span></a></li>
+                    <li class='has-sub '><a href='?Reservacion/Ver'><span class="con">Ver reservaciones
+                        pendientes</span></a></li>
+                    <li class='has-sub '><a href='?Reservacion/Historial'><span class="con">Historial de
+                        vuelos</span></a></li>
                 </ul>
             </li>
-            <li><a href="About.aspx"><span>Acerca de nosotros</span></a></li>
-            <li><a href='About.aspx'><span>Contacto</span></a></li>
+            <li><a href="About.aspx"><span class="con">Acerca de nosotros</span></a></li>
+            <li><a href='About.aspx'><span class="con">Contacto</span></a></li>
+            <li><a href='#' onclick="$('#myModal').modal('show')">Ingresar</a></li>
         </ul>
     </div>
     <div class="container-fluid" id="content">
@@ -63,7 +65,7 @@
             </div>
         </div>
     </div>
-    <footer> &copy; 2012 KSBSoftware. All Rights Reserved. </footer>
+    <footer> &copy; 2012 JRS Software. All Rights Reserved. </footer>
     </form>
 </body>
 </html>

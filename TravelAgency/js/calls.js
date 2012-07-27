@@ -1,13 +1,22 @@
 ﻿$(function () {
+    $('.carousel').carousel({
+        interval: 3000
+    })
+    $('.modal').modal('hide')
+    $('.btn').tooltip()
 
-    $("#datepickerOrigen").datepicker({
+    $("#datepickerPartida").datepicker({
         minDate: +2,
-        maxDate: "+1M +10D"
-    });
+        maxDate: "+1M +10D",
+        showOtherMonths: true,
+        selectOtherMonths: true
+    })
     $("#datepickerDestino").datepicker({
         minDate: +3,
-        maxDate: "+1M +10D"
-    });
+        maxDate: "+1M +10D",
+        showOtherMonths: true,
+        selectOtherMonths: true
+    })
     $.datepicker.regional['es'] = {
         closeText: 'Cerrar',
         prevText: '<Ant',
@@ -24,6 +33,6 @@
         isRTL: false,
         showMonthAfterYear: false,
         yearSuffix: ''
-    };
-    $.datepicker.setDefaults($.datepicker.regional['es']);
+    }
+    $.datepicker.setDefaults($.datepicker.regional['es'])
 });

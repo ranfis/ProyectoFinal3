@@ -1,10 +1,11 @@
 html {
 	background: #0fa1e0;
+	font: bold 11px Helvetica, Arial, sans-serif;
 }
 body {
 	margin: auto;
 	width: 80%;
-	background: #0fa1e0;
+	
 	margin-top: 16px;
 	margin-bottom: 16px;
 	border-radius: 16px;
@@ -25,7 +26,13 @@ body {
 }
 
 footer {
-	background-color: #2c2c2c;
+	background: #141414;
+	background: -moz-linear-gradient(top, #32323a 0%, #141414 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #32323a), color-stop(100%, #141414));
+	background: -webkit-linear-gradient(top, #32323a 0%, #141414 100%);
+	background: -o-linear-gradient(top, #32323a 0%, #141414 100%);
+	background: -ms-linear-gradient(top, #32323a 0%, #141414 100%);
+	background: linear-gradient(to bottom, #32323a 0%, #141414 100%);
 	border-bottom-left-radius: 6px;
 	border-bottom-right-radius: 6px;
 	border: 1px solid black;
@@ -67,38 +74,47 @@ div.item {
 	text-align: center;
 }
 
-#reservacion {
-	height: 200px;
-	width: 300px;
-	background-color: #bbE;
-}
-
 span.con {
 	font: bold 11px Helvetica, Arial, sans-serif;
-	text-shadow: 0 2px 1px #777;
+	text-shadow: 0 1px 1px #777;
 	color: #FFF;
+}
+
+span.dark{
+	text-shadow: 0 2px 1px white;
+	color: black;
 }
 
 table.pnlReserv {
 	margin: auto;
 }
 div.pnlReserv {
-	background-color: #3e9ed8;
+	box-shadow: 1px 1px 8px #A6A6A6;
+	background: -webkit-linear-gradient(top, #3e9ed8, #3e9ed8);
+    background: -moz-linear-gradient(top, #3e9ed8, #3e9ed8);
+    background: -ms-linear-gradient(top, #3e9ed8, #3e9ed8);
+    background: -o-linear-gradient(top, #3e9ed8, #3e9ed8);
 	width: 500px;
 	padding: 8px;
 	border: 2px solid white;
 	border-radius: 8px;
 	border-shadow: 0 1px 0 #2F5BB7;
 }
-#banner {
-	font: bold 32px Helvetica, Arial, sans-serif;
-	text-shadow: 1px 2px 1px #2F5BB7;
-	color: #FFF;
-	text-align: center;
+.login {
+	padding: 16px;    margin:auto;
+	height: 116px;
+}
+.modal
+{
+ width:400px;   
 }
 input.error {
 	background-color: pink;
 	border-color: Red;
+}
+
+input.error:hover {
+	background-color: white;
 }
 
 /* MENU */

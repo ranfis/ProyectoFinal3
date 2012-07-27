@@ -71,6 +71,13 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <None Include="Web References\localhost\FlightService.disco" />
+    <Content Include="img\galeria\City-Wallpaper-11.jpg" />
+    <Content Include="img\galeria\City-Wallpaper-25.jpg" />
+    <Content Include="img\galeria\City-Wallpaper-28.jpg" />
+    <Content Include="img\galeria\City-Wallpaper-3.jpg" />
+    <Content Include="img\galeria\City-Wallpaper-4.jpg" />
+    <Content Include="img\galeria\City-Wallpaper-5.jpg" />
+    <Content Include="img\logo.png" />
     <Content Include="jquery\css\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="jquery\css\images\ui-bg_glass_55_fbf9ee_1x400.png" />
     <Content Include="jquery\css\images\ui-bg_glass_65_ffffff_1x400.png" />
@@ -89,18 +96,6 @@
     <Content Include="jquery\js\jquery-ui-1.8.21.custom.min.js" />
     <Content Include="js\calls.js" />
     <Content Include="js\functions.js" />
-    <Content Include="js\jquery-1.4.1-vsdoc.js" />
-    <Content Include="js\jquery-1.4.1.js" />
-    <Content Include="js\jquery-1.4.1.min.js" />
-    <Content Include="js\jquery.validate-vsdoc.js" />
-    <Content Include="js\jquery.validate.js" />
-    <Content Include="js\jquery.validate.min.js" />
-    <Content Include="js\MicrosoftAjax.debug.js" />
-    <Content Include="js\MicrosoftAjax.js" />
-    <Content Include="js\MicrosoftMvcAjax.debug.js" />
-    <Content Include="js\MicrosoftMvcAjax.js" />
-    <Content Include="js\MicrosoftMvcValidation.debug.js" />
-    <Content Include="js\MicrosoftMvcValidation.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -176,6 +171,7 @@
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
+    <Compile Include="Validador.cs" />
     <Compile Include="Web References\localhost\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

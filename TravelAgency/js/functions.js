@@ -1,9 +1,4 @@
-﻿$('.dropdown-toggle').dropdown();
-$('.dropdown-menu').find('form').click(function (e) {
-    e.stopPropagation();
-});
-
-function marcar(e) {
+﻿function marcar(e) {
     document.getElementById(e).setAttribute('class', 'error');
     document.getElementById(e).setAttribute('onblur', 'this.setAttribute("class","error");');
     document.getElementById(e).setAttribute('onfocus', 'this.setAttribute("class","");');
@@ -13,14 +8,17 @@ function desmarcar(e) {
 }
 
 function validarReservacion() {
-    desmarcar("txtPartida");
+    //alert(document.getElementById("txtPartida"));
+    //desmarcar("txtPartida");
+    /*
     desmarcar("txtDestino");
-    txt=document.getElementsByTagName('input');
+    desmarcar("datepickerOrigen");
+    desmarcar("datepickerDestino");
 
-        if (!(document.getElementById('txtPartida').value.match(/^[a-z A-Z,]+$/))) {
-            marcar('txtPartida');
-        }
-    if (!(document.getElementById('txtDestino').value.match(/^[a-z A-Z]+$/))) {
-        marcar('txtDestino');
+    if (!(document.getElementById('txtOrigen').value.match(/^[a-z A-Z,]+$/))) {
+    marcar('txtOrigen');
     }
+    if (!(document.getElementById('txtDestino').value.match(/^[a-z A-Z]+$/))) {
+    marcar('txtDestino');
+    }*/
 }
