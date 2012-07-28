@@ -3,7 +3,12 @@
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
       <s:element name="buscarVuelos">
-        <s:complexType />
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="partida" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="destino" type="s:string" />
+          </s:sequence>
+        </s:complexType>
       </s:element>
       <s:element name="buscarVuelosResponse">
         <s:complexType>
@@ -90,6 +95,34 @@
           <s:extension base="tns:EntityReference" />
         </s:complexContent>
       </s:complexType>
+      <s:element name="listaAeropuertos">
+        <s:complexType />
+      </s:element>
+      <s:complexType name="ArrayOfAeropuerto">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="aeropuerto" nillable="true" type="tns:aeropuerto" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="aeropuerto">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityObject">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="codigo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="descripcion" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ciudad" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="pais" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="direccion" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="listaAeropuertosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="listaAeropuertosResult" type="tns:ArrayOfAeropuerto" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="insertarClase">
         <s:complexType>
           <s:sequence>
@@ -109,6 +142,12 @@
   <wsdl:message name="buscarVuelosSoapOut">
     <wsdl:part name="parameters" element="tns:buscarVuelosResponse" />
   </wsdl:message>
+  <wsdl:message name="listaAeropuertosSoapIn">
+    <wsdl:part name="parameters" element="tns:listaAeropuertos" />
+  </wsdl:message>
+  <wsdl:message name="listaAeropuertosSoapOut">
+    <wsdl:part name="parameters" element="tns:listaAeropuertosResponse" />
+  </wsdl:message>
   <wsdl:message name="insertarClaseSoapIn">
     <wsdl:part name="parameters" element="tns:insertarClase" />
   </wsdl:message>
@@ -120,6 +159,10 @@
       <wsdl:input message="tns:buscarVuelosSoapIn" />
       <wsdl:output message="tns:buscarVuelosSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="listaAeropuertos">
+      <wsdl:input message="tns:listaAeropuertosSoapIn" />
+      <wsdl:output message="tns:listaAeropuertosSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="insertarClase">
       <wsdl:input message="tns:insertarClaseSoapIn" />
       <wsdl:output message="tns:insertarClaseSoapOut" />
@@ -129,6 +172,15 @@
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="buscarVuelos">
       <soap:operation soapAction="http://tempuri.org/buscarVuelos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listaAeropuertos">
+      <soap:operation soapAction="http://tempuri.org/listaAeropuertos" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -150,6 +202,15 @@
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="buscarVuelos">
       <soap12:operation soapAction="http://tempuri.org/buscarVuelos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listaAeropuertos">
+      <soap12:operation soapAction="http://tempuri.org/listaAeropuertos" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

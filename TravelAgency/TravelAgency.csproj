@@ -70,6 +70,9 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="Web References\localhost\aeropuerto.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
     <None Include="Web References\localhost\FlightService.disco" />
     <Content Include="img\logo.png" />
     <Content Include="jquery\css\images\ui-bg_flat_0_aaaaaa_40x100.png" />

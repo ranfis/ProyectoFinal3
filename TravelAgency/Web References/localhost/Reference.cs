@@ -35,6 +35,8 @@ namespace TravelAgency.localhost {
         
         private System.Threading.SendOrPostCallback buscarVuelosOperationCompleted;
         
+        private System.Threading.SendOrPostCallback listaAeropuertosOperationCompleted;
+        
         private System.Threading.SendOrPostCallback insertarClaseOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
@@ -79,32 +81,66 @@ namespace TravelAgency.localhost {
         public event buscarVuelosCompletedEventHandler buscarVuelosCompleted;
         
         /// <remarks/>
+        public event listaAeropuertosCompletedEventHandler listaAeropuertosCompleted;
+        
+        /// <remarks/>
         public event insertarClaseCompletedEventHandler insertarClaseCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/buscarVuelos", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public vuelo[] buscarVuelos() {
-            object[] results = this.Invoke("buscarVuelos", new object[0]);
+        public vuelo[] buscarVuelos(string partida, string destino) {
+            object[] results = this.Invoke("buscarVuelos", new object[] {
+                        partida,
+                        destino});
             return ((vuelo[])(results[0]));
         }
         
         /// <remarks/>
-        public void buscarVuelosAsync() {
-            this.buscarVuelosAsync(null);
+        public void buscarVuelosAsync(string partida, string destino) {
+            this.buscarVuelosAsync(partida, destino, null);
         }
         
         /// <remarks/>
-        public void buscarVuelosAsync(object userState) {
+        public void buscarVuelosAsync(string partida, string destino, object userState) {
             if ((this.buscarVuelosOperationCompleted == null)) {
                 this.buscarVuelosOperationCompleted = new System.Threading.SendOrPostCallback(this.OnbuscarVuelosOperationCompleted);
             }
-            this.InvokeAsync("buscarVuelos", new object[0], this.buscarVuelosOperationCompleted, userState);
+            this.InvokeAsync("buscarVuelos", new object[] {
+                        partida,
+                        destino}, this.buscarVuelosOperationCompleted, userState);
         }
         
         private void OnbuscarVuelosOperationCompleted(object arg) {
             if ((this.buscarVuelosCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.buscarVuelosCompleted(this, new buscarVuelosCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/listaAeropuertos", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public aeropuerto[] listaAeropuertos() {
+            object[] results = this.Invoke("listaAeropuertos", new object[0]);
+            return ((aeropuerto[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void listaAeropuertosAsync() {
+            this.listaAeropuertosAsync(null);
+        }
+        
+        /// <remarks/>
+        public void listaAeropuertosAsync(object userState) {
+            if ((this.listaAeropuertosOperationCompleted == null)) {
+                this.listaAeropuertosOperationCompleted = new System.Threading.SendOrPostCallback(this.OnlistaAeropuertosOperationCompleted);
+            }
+            this.InvokeAsync("listaAeropuertos", new object[0], this.listaAeropuertosOperationCompleted, userState);
+        }
+        
+        private void OnlistaAeropuertosOperationCompleted(object arg) {
+            if ((this.listaAeropuertosCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.listaAeropuertosCompleted(this, new listaAeropuertosCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -437,6 +473,7 @@ namespace TravelAgency.localhost {
     
     /// <remarks/>
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(EntityObject))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(aeropuerto))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(vuelo))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.17379")]
     [System.SerializableAttribute()]
@@ -447,6 +484,7 @@ namespace TravelAgency.localhost {
     }
     
     /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(aeropuerto))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(vuelo))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.17379")]
     [System.SerializableAttribute()]
@@ -464,6 +502,75 @@ namespace TravelAgency.localhost {
             }
             set {
                 this.entityKeyField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.17379")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class aeropuerto : EntityObject {
+        
+        private string codigoField;
+        
+        private string descripcionField;
+        
+        private string ciudadField;
+        
+        private string paisField;
+        
+        private string direccionField;
+        
+        /// <remarks/>
+        public string codigo {
+            get {
+                return this.codigoField;
+            }
+            set {
+                this.codigoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string descripcion {
+            get {
+                return this.descripcionField;
+            }
+            set {
+                this.descripcionField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string ciudad {
+            get {
+                return this.ciudadField;
+            }
+            set {
+                this.ciudadField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string pais {
+            get {
+                return this.paisField;
+            }
+            set {
+                this.paisField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string direccion {
+            get {
+                return this.direccionField;
+            }
+            set {
+                this.direccionField = value;
             }
         }
     }
@@ -508,6 +615,32 @@ namespace TravelAgency.localhost {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((vuelo[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.17379")]
+    public delegate void listaAeropuertosCompletedEventHandler(object sender, listaAeropuertosCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.17379")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class listaAeropuertosCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal listaAeropuertosCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public aeropuerto[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((aeropuerto[])(this.results[0]));
             }
         }
     }

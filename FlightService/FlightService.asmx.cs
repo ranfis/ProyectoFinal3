@@ -18,22 +18,33 @@ namespace FlightService
     {
         AirlineEntities airline = new AirlineEntities();
         [WebMethod]
-        public List<vuelo> buscarVuelos()
+        public List<vuelo> buscarVuelos(String partida,String destino)
         {
-            //List<vuelo> filtro = new List<vuelo>();
-            List<vuelo> filtro2 = new List<vuelo>();
-            //String ori = airline.aeropuerto.ToList().Find(x => (x.descripcion.Equals("Aeropuerto Internacional del Santiago"))).codigo;
-            //String des = airline.aeropuerto.ToList().Find(x => (x.descripcion.Equals("Washington International Airport"))).codigo;
+            String par = partida.Substring(partida.IndexOf("(")).Replace("(", "").Replace(")", "");
+            String des = destino.Substring(destino.IndexOf("(")).Replace("(", "").Replace(")", "");
 
-            //filtro = airline.vuelo.ToList().FindAll(x => (x.origen.Equals(ori) && x.destino.Equals(des)));
-            return filtro2;
+            List<vuelo> filtro = new List<vuelo>();
+            filtro = airline.vuelo.ToList().FindAll(x => (x.origen.Equals(par) && x.destino.Equals(des)));
+            if (filtro.Count > 0)
+            {
+                return filtro;
+            }
+            else
+            {
+                return null;
+            }
+            
         }
-
+        [WebMethod]
+        public List<aeropuerto> listaAeropuertos()
+        {
+            return airline.aeropuerto.ToList();
+        }
         [WebMethod]
         public void insertarClase(String id, String descripcion)
         {
             AirlineEntities airline = new AirlineEntities();
-            clases clase =new clases();
+            clases clase = new clases();
 
             clase.codigo = id;
             clase.descripcion = descripcion;
