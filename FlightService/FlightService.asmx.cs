@@ -18,7 +18,7 @@ namespace FlightService
     {
         AirlineEntities airline = new AirlineEntities();
         [WebMethod]
-        public List<vuelo> buscarVuelos(String partida,String destino)
+        public List<vuelo> buscarVuelos(String partida, String destino)
         {
             String par = partida.Substring(partida.IndexOf("(")).Replace("(", "").Replace(")", "");
             String des = destino.Substring(destino.IndexOf("(")).Replace("(", "").Replace(")", "");
@@ -33,7 +33,7 @@ namespace FlightService
             {
                 return null;
             }
-            
+
         }
         [WebMethod]
         public List<aeropuerto> listaAeropuertos()

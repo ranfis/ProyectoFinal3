@@ -61,6 +61,9 @@
     <Content Include="bootstrap\css\bootstrap.min.css" />
     <Content Include="bootstrap\img\glyphicons-halflings-white.png" />
     <Content Include="bootstrap\img\glyphicons-halflings.png" />
+    <Content Include="bootstrap\img\grd_alt.png" />
+    <Content Include="bootstrap\img\grd_head.png" />
+    <Content Include="bootstrap\img\grd_pgr.png" />
     <Content Include="bootstrap\js\bootstrap.js" />
     <Content Include="bootstrap\js\bootstrap.min.js" />
     <Content Include="css\style.css" />

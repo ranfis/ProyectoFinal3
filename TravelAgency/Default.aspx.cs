@@ -18,18 +18,19 @@ namespace TravelAgency
         }
         protected String listaAeropuertos()
         {
-            System.Text.StringBuilder aeropuertos=new System.Text.StringBuilder("[");
+            System.Text.StringBuilder aeropuertos = new System.Text.StringBuilder("[");
             var lista = servicio.listaAeropuertos();
-            foreach(var x in lista){
+            foreach (var x in lista)
+            {
                 aeropuertos.Append('"'.ToString());
                 aeropuertos.Append(x.ciudad);
-                aeropuertos.Append(" ("+x.codigo+")");
+                aeropuertos.Append(" (" + x.codigo + ")");
                 aeropuertos.Append('"'.ToString() + ",");
             }
-            aeropuertos.Remove(aeropuertos.Length-1, 1);
+            aeropuertos.Remove(aeropuertos.Length - 1, 1);
             aeropuertos.Append("]");
             return aeropuertos.ToString();
-            
+
         }
         protected void validarReservacion(object sender, EventArgs e)
         {
@@ -51,7 +52,7 @@ namespace TravelAgency
                 resultado = false;
             }
 
-            if (!(datepickerPartida.Text.Trim().Length>0))
+            if (!(datepickerPartida.Text.Trim().Length > 0))
             {
                 datepickerPartida.CssClass = "error";
                 resultado = false;

@@ -5,26 +5,20 @@ html {
 body {
 	margin: auto;
 	width: 80%;
-	
 	margin-top: 16px;
 	margin-bottom: 16px;
 	border-radius: 16px;
-
 }
-#content
-{
-    border-right: 1px solid black;
-    border-left: 1px solid black;
+#content {
+	border-right: 1px solid black;
+	border-left: 1px solid black;
 }
 #main {
 	padding: 32px;
 }
-
-#sidebar
-{
-    border-right: 1px solid black;
+#sidebar {
+	border-right: 1px solid black;
 }
-
 footer {
 	background: #141414;
 	background: -moz-linear-gradient(top, #32323a 0%, #141414 100%);
@@ -40,7 +34,6 @@ footer {
 	text-align: center;
 	height: 32px;
 }
-
 h1 {
 	text-align: center;
 }
@@ -48,19 +41,16 @@ h1 {
 	width: 70%;
 	margin: auto;
 }
-
 #myCarousel {
 	width: 600px;
 	margin: auto;
 	padding-top: 128px;
 }
-
 div.item {
 	margin: auto;
 	width: 600px;
 	height: 400px;
 }
-
 .alert {
 	width: 400px;
 }
@@ -73,27 +63,24 @@ div.item {
 	margin: auto;
 	text-align: center;
 }
-
 span.con {
 	font: bold 11px Helvetica, Arial, sans-serif;
 	text-shadow: 0 1px 1px #777;
 	color: #FFF;
 }
-
-span.dark{
+span.dark {
 	text-shadow: 0 2px 1px white;
 	color: black;
 }
-
 table.pnlReserv {
 	margin: auto;
 }
 div.pnlReserv {
 	box-shadow: 1px 1px 8px #A6A6A6;
 	background: -webkit-linear-gradient(top, #3e9ed8, #3e9ed8);
-    background: -moz-linear-gradient(top, #3e9ed8, #3e9ed8);
-    background: -ms-linear-gradient(top, #3e9ed8, #3e9ed8);
-    background: -o-linear-gradient(top, #3e9ed8, #3e9ed8);
+	background: -moz-linear-gradient(top, #3e9ed8, #3e9ed8);
+	background: -ms-linear-gradient(top, #3e9ed8, #3e9ed8);
+	background: -o-linear-gradient(top, #3e9ed8, #3e9ed8);
 	width: 500px;
 	padding: 8px;
 	border: 2px solid white;
@@ -101,22 +88,20 @@ div.pnlReserv {
 	border-shadow: 0 1px 0 #2F5BB7;
 }
 .login {
-	padding: 16px;    margin:auto;
+	padding: 16px;
+	margin: auto;
 	height: 116px;
 }
-.modal
-{
- width:400px;   
+.modal {
+	width: 400px;
 }
 input.error {
 	background-color: pink;
 	border-color: Red;
 }
-
 input.error:hover {
 	background-color: white;
 }
-
 /* MENU */
 .cssmenu ul, .cssmenu li, .cssmenu span, .cssmenu a {
 	margin: 0;
@@ -135,7 +120,7 @@ input.error:hover {
 	background: -o-linear-gradient(top, #32323a 0%, #141414 100%);
 	background: -ms-linear-gradient(top, #32323a 0%, #141414 100%);
 	background: linear-gradient(to bottom, #32323a 0%, #141414 100%);
-	filter: progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#32323a', EndColorStr='#141414', GradientType=0);
+	filter: progid :DXImageTransform.Microsoft.Gradient(StartColorStr='#32323a', EndColorStr='#141414', GradientType=0);
 	border-bottom: 2px solid #0fa1e0;
 }
 .cssmenu:after, .cssmenu ul:after {
@@ -151,7 +136,7 @@ input.error:hover {
 	background: -o-linear-gradient(top, #32323a 0%, #141414 100%);
 	background: -ms-linear-gradient(top, #32323a 0%, #141414 100%);
 	background: linear-gradient(to bottom, #32323a 0%, #141414 100%);
-	filter: progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#32323a', EndColorStr='#141414', GradientType=0);
+	filter: progid :DXImageTransform.Microsoft.Gradient(StartColorStr='#32323a', EndColorStr='#141414', GradientType=0);
 	color: #ffffff;
 	display: inline-block;
 	font-family: Helvetica, Arial, Verdana, sans-serif;
@@ -203,7 +188,7 @@ input.error:hover {
 	background: -o-linear-gradient(top, #26262c 0%, #070707 100%);
 	background: -ms-linear-gradient(top, #26262c 0%, #070707 100%);
 	background: linear-gradient(to bottom, #26262c 0%, #070707 100%);
-	filter: progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#26262c', EndColorStr='#070707', GradientType=0);
+	filter: progid :DXImageTransform.Microsoft.Gradient(StartColorStr='#26262c', EndColorStr='#070707', GradientType=0);
 }
 .cssmenu > ul > li:hover > a {
 	background: #070707;
@@ -213,7 +198,7 @@ input.error:hover {
 	background: -o-linear-gradient(top, #26262c 0%, #070707 100%);
 	background: -ms-linear-gradient(top, #26262c 0%, #070707 100%);
 	background: linear-gradient(to bottom, #26262c 0%, #070707 100%);
-	filter: progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#26262c', EndColorStr='#070707', GradientType=0);
+	filter: progid :DXImageTransform.Microsoft.Gradient(StartColorStr='#26262c', EndColorStr='#070707', GradientType=0);
 	box-shadow: inset 0 0 3px #000000;
 	-moz-box-shadow: inset 0 0 3px #000000;
 	-webkit-box-shadow: inset 0 0 3px #000000;
@@ -232,7 +217,8 @@ input.error:hover {
 	left: 0;
 }
 .cssmenu .has-sub ul li {
-	*margin-bottom: -1px;
+	*
+	margin-bottom: -1px;
 }
 .cssmenu .has-sub ul li a {
 	background: #0fa1e0;
@@ -262,17 +248,50 @@ input.error:hover {
 .cssmenu .has-sub .has-sub ul li a:hover {
 	background: #095c80;
 }
-
 /* Tables */
 
-.mGrid { width: 100%; background-color: #fff; margin: 5px 0 10px 0; border: solid 1px #525252; border-collapse:collapse; }
-    .mGrid td { padding: 2px; border: solid 1px #c1c1c1; color: #717171; }
-    .mGrid th { padding: 4px 2px; color: #fff; background: #424242 url(../../img/grd_head.png) repeat-x top; border-left: solid 1px #525252; font-size: 0.9em; }
-.mGrid .alt { background: #fcfcfc url(../../img/grd_alt.png) repeat-x top; }
-.mGrid .pgr {background: #424242 url(../../img/grd_pgr.png) repeat-x top; }
-    .mGrid .pgr table { margin: 5px 0; }
-    .mGrid .pgr td { border-width: 0; padding: 0 6px; border-left: solid 1px #666; font-weight: bold; color: #fff; line-height: 12px; }   
-    .mGrid .pgr a { color: #666; text-decoration: none; }
-    .mGrid .pgr a:hover { color: #000; text-decoration: none; }
-    
-    /* Tables */
+.mGrid {
+	width: 100%;
+	background-color: #fff;
+	margin: 5px 0 10px 0;
+	border: solid 1px #525252;
+	border-collapse: collapse;
+}
+.mGrid td {
+	padding: 2px;
+	border: solid 1px #c1c1c1;
+	color: #717171;
+}
+.mGrid th {
+	padding: 4px 2px;
+	color: #fff;
+	background: #424242 url(../../img/grd_head.png) repeat-x top;
+	border-left: solid 1px #525252;
+	font-size: 0.9em;
+}
+.mGrid .alt {
+	background: #fcfcfc url(../../img/grd_alt.png) repeat-x top;
+}
+.mGrid .pgr {
+	background: #424242 url(../../img/grd_pgr.png) repeat-x top;
+}
+.mGrid .pgr table {
+	margin: 5px 0;
+}
+.mGrid .pgr td {
+	border-width: 0;
+	padding: 0 6px;
+	border-left: solid 1px #666;
+	font-weight: bold;
+	color: #fff;
+	line-height: 12px;
+}
+.mGrid .pgr a {
+	color: #666;
+	text-decoration: none;
+}
+.mGrid .pgr a:hover {
+	color: #000;
+	text-decoration: none;
+}
+/* Tables */

@@ -6,3 +6,4 @@ C:\Dropbox\Workspace\ASP\ProyectoFinal3\FlightService\bin\FlightService.dll
 C:\Dropbox\Workspace\ASP\ProyectoFinal3\FlightService\bin\FlightService.pdb
 C:\Dropbox\Workspace\ASP\ProyectoFinal3\FlightService\obj\Debug\FlightService.dll
 C:\Dropbox\Workspace\ASP\ProyectoFinal3\FlightService\obj\Debug\FlightService.pdb
+C:\Dropbox\Workspace\ASP\ProyectoFinal3\FlightService\obj\Debug\FlightService.csprojResolveAssemblyReference.cache
