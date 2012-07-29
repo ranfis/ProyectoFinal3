@@ -1,0 +1,278 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TravelAgencyModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="TravelAgencyModelStoreContainer">
+          <EntitySet Name="agencia" EntityType="TravelAgencyModel.Store.agencia" store:Type="Tables" Schema="travelagency" />
+          <EntitySet Name="reservacion" EntityType="TravelAgencyModel.Store.reservacion" store:Type="Tables" Schema="travelagency" />
+          <EntitySet Name="rol" EntityType="TravelAgencyModel.Store.rol" store:Type="Tables" Schema="travelagency" />
+          <EntitySet Name="usuario" EntityType="TravelAgencyModel.Store.usuario" store:Type="Tables" Schema="travelagency" />
+          <AssociationSet Name="FK_Reservacion_Agencia" Association="TravelAgencyModel.Store.FK_Reservacion_Agencia">
+            <End Role="agencia" EntitySet="agencia" />
+            <End Role="reservacion" EntitySet="reservacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reservacion_Cliente" Association="TravelAgencyModel.Store.FK_Reservacion_Cliente">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="reservacion" EntitySet="reservacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_Rol" Association="TravelAgencyModel.Store.FK_Usuario_Rol">
+            <End Role="rol" EntitySet="rol" />
+            <End Role="usuario" EntitySet="usuario" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="agencia">
+          <Key>
+            <PropertyRef Name="codigo" />
+          </Key>
+          <Property Name="codigo" Type="varchar" Nullable="false" MaxLength="8" />
+          <Property Name="descripcion" Type="varchar" Nullable="false" MaxLength="45" />
+          <Property Name="telefono" Type="varchar" Nullable="false" MaxLength="13" />
+          <Property Name="direccion" Type="varchar" Nullable="false" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="reservacion">
+          <Key>
+            <PropertyRef Name="codigo" />
+          </Key>
+          <Property Name="codigo" Type="varchar" Nullable="false" MaxLength="8" />
+          <Property Name="vuelo" Type="varchar" Nullable="false" MaxLength="8" />
+          <Property Name="agencia" Type="varchar" Nullable="false" MaxLength="8" />
+          <Property Name="precio" Type="double" Nullable="false" />
+          <Property Name="clase" Type="varchar" Nullable="false" MaxLength="45" />
+          <Property Name="estado" Type="tinyint" />
+          <Property Name="cliente" Type="varchar" Nullable="false" MaxLength="16" />
+          <Property Name="asiento" Type="varchar" MaxLength="3" />
+        </EntityType>
+        <EntityType Name="rol">
+          <Key>
+            <PropertyRef Name="codigo" />
+          </Key>
+          <Property Name="codigo" Type="varchar" Nullable="false" MaxLength="8" />
+          <Property Name="descripcion" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="usuario">
+          <Key>
+            <PropertyRef Name="nusuario" />
+          </Key>
+          <Property Name="nusuario" Type="varchar" Nullable="false" MaxLength="16" />
+          <Property Name="clave" Type="varchar" Nullable="false" MaxLength="45" />
+          <Property Name="rol" Type="varchar" Nullable="false" MaxLength="8" />
+          <Property Name="nombre" Type="varchar" Nullable="false" MaxLength="45" />
+          <Property Name="apellido" Type="varchar" Nullable="false" MaxLength="45" />
+        </EntityType>
+        <Association Name="FK_Reservacion_Agencia">
+          <End Role="agencia" Type="TravelAgencyModel.Store.agencia" Multiplicity="1" />
+          <End Role="reservacion" Type="TravelAgencyModel.Store.reservacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="agencia">
+              <PropertyRef Name="codigo" />
+            </Principal>
+            <Dependent Role="reservacion">
+              <PropertyRef Name="agencia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reservacion_Cliente">
+          <End Role="usuario" Type="TravelAgencyModel.Store.usuario" Multiplicity="1" />
+          <End Role="reservacion" Type="TravelAgencyModel.Store.reservacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="nusuario" />
+            </Principal>
+            <Dependent Role="reservacion">
+              <PropertyRef Name="cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_Rol">
+          <End Role="rol" Type="TravelAgencyModel.Store.rol" Multiplicity="1" />
+          <End Role="usuario" Type="TravelAgencyModel.Store.usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="rol">
+              <PropertyRef Name="codigo" />
+            </Principal>
+            <Dependent Role="usuario">
+              <PropertyRef Name="rol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TravelAgencyModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="TravelAgencyEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="agencias" EntityType="TravelAgencyModel.agencia" />
+          <EntitySet Name="reservacions" EntityType="TravelAgencyModel.reservacion" />
+          <EntitySet Name="rols" EntityType="TravelAgencyModel.rol" />
+          <EntitySet Name="usuarios" EntityType="TravelAgencyModel.usuario" />
+          <AssociationSet Name="FK_Reservacion_Agencia" Association="TravelAgencyModel.FK_Reservacion_Agencia">
+            <End Role="agencia" EntitySet="agencias" />
+            <End Role="reservacion" EntitySet="reservacions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reservacion_Cliente" Association="TravelAgencyModel.FK_Reservacion_Cliente">
+            <End Role="usuario" EntitySet="usuarios" />
+            <End Role="reservacion" EntitySet="reservacions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_Rol" Association="TravelAgencyModel.FK_Usuario_Rol">
+            <End Role="rol" EntitySet="rols" />
+            <End Role="usuario" EntitySet="usuarios" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="agencia">
+          <Key>
+            <PropertyRef Name="codigo" />
+          </Key>
+          <Property Name="codigo" Type="String" Nullable="false" MaxLength="8" Unicode="false" FixedLength="false" />
+          <Property Name="descripcion" Type="String" Nullable="false" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="telefono" Type="String" Nullable="false" MaxLength="13" Unicode="false" FixedLength="false" />
+          <Property Name="direccion" Type="String" Nullable="false" MaxLength="45" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="reservacions" Relationship="TravelAgencyModel.FK_Reservacion_Agencia" FromRole="agencia" ToRole="reservacion" />
+        </EntityType>
+        <EntityType Name="reservacion">
+          <Key>
+            <PropertyRef Name="codigo" />
+          </Key>
+          <Property Name="codigo" Type="String" Nullable="false" MaxLength="8" Unicode="false" FixedLength="false" />
+          <Property Name="vuelo" Type="String" Nullable="false" MaxLength="8" Unicode="false" FixedLength="false" />
+          <Property Name="agencia" Type="String" Nullable="false" MaxLength="8" Unicode="false" FixedLength="false" />
+          <Property Name="precio" Type="Double" Nullable="false" />
+          <Property Name="clase" Type="String" Nullable="false" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="estado" Type="SByte" />
+          <Property Name="cliente" Type="String" Nullable="false" MaxLength="16" Unicode="false" FixedLength="false" />
+          <Property Name="asiento" Type="String" MaxLength="3" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="agencia1" Relationship="TravelAgencyModel.FK_Reservacion_Agencia" FromRole="reservacion" ToRole="agencia" />
+          <NavigationProperty Name="usuario" Relationship="TravelAgencyModel.FK_Reservacion_Cliente" FromRole="reservacion" ToRole="usuario" />
+        </EntityType>
+        <EntityType Name="rol">
+          <Key>
+            <PropertyRef Name="codigo" />
+          </Key>
+          <Property Name="codigo" Type="String" Nullable="false" MaxLength="8" Unicode="false" FixedLength="false" />
+          <Property Name="descripcion" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="usuarios" Relationship="TravelAgencyModel.FK_Usuario_Rol" FromRole="rol" ToRole="usuario" />
+        </EntityType>
+        <EntityType Name="usuario">
+          <Key>
+            <PropertyRef Name="nusuario" />
+          </Key>
+          <Property Name="nusuario" Type="String" Nullable="false" MaxLength="16" Unicode="false" FixedLength="false" />
+          <Property Name="clave" Type="String" Nullable="false" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="rol" Type="String" Nullable="false" MaxLength="8" Unicode="false" FixedLength="false" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="apellido" Type="String" Nullable="false" MaxLength="45" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="reservacions" Relationship="TravelAgencyModel.FK_Reservacion_Cliente" FromRole="usuario" ToRole="reservacion" />
+          <NavigationProperty Name="rol1" Relationship="TravelAgencyModel.FK_Usuario_Rol" FromRole="usuario" ToRole="rol" />
+        </EntityType>
+        <Association Name="FK_Reservacion_Agencia">
+          <End Role="agencia" Type="TravelAgencyModel.agencia" Multiplicity="1" />
+          <End Role="reservacion" Type="TravelAgencyModel.reservacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="agencia">
+              <PropertyRef Name="codigo" />
+            </Principal>
+            <Dependent Role="reservacion">
+              <PropertyRef Name="agencia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reservacion_Cliente">
+          <End Role="usuario" Type="TravelAgencyModel.usuario" Multiplicity="1" />
+          <End Role="reservacion" Type="TravelAgencyModel.reservacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="nusuario" />
+            </Principal>
+            <Dependent Role="reservacion">
+              <PropertyRef Name="cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_Rol">
+          <End Role="rol" Type="TravelAgencyModel.rol" Multiplicity="1" />
+          <End Role="usuario" Type="TravelAgencyModel.usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="rol">
+              <PropertyRef Name="codigo" />
+            </Principal>
+            <Dependent Role="usuario">
+              <PropertyRef Name="rol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TravelAgencyModelStoreContainer" CdmEntityContainer="TravelAgencyEntities">
+          <EntitySetMapping Name="agencias"><EntityTypeMapping TypeName="TravelAgencyModel.agencia"><MappingFragment StoreEntitySet="agencia">
+            <ScalarProperty Name="codigo" ColumnName="codigo" />
+            <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+            <ScalarProperty Name="telefono" ColumnName="telefono" />
+            <ScalarProperty Name="direccion" ColumnName="direccion" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="reservacions"><EntityTypeMapping TypeName="TravelAgencyModel.reservacion"><MappingFragment StoreEntitySet="reservacion">
+            <ScalarProperty Name="codigo" ColumnName="codigo" />
+            <ScalarProperty Name="vuelo" ColumnName="vuelo" />
+            <ScalarProperty Name="agencia" ColumnName="agencia" />
+            <ScalarProperty Name="precio" ColumnName="precio" />
+            <ScalarProperty Name="clase" ColumnName="clase" />
+            <ScalarProperty Name="estado" ColumnName="estado" />
+            <ScalarProperty Name="cliente" ColumnName="cliente" />
+            <ScalarProperty Name="asiento" ColumnName="asiento" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="rols"><EntityTypeMapping TypeName="TravelAgencyModel.rol"><MappingFragment StoreEntitySet="rol">
+            <ScalarProperty Name="codigo" ColumnName="codigo" />
+            <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="usuarios"><EntityTypeMapping TypeName="TravelAgencyModel.usuario"><MappingFragment StoreEntitySet="usuario">
+            <ScalarProperty Name="nusuario" ColumnName="nusuario" />
+            <ScalarProperty Name="clave" ColumnName="clave" />
+            <ScalarProperty Name="rol" ColumnName="rol" />
+            <ScalarProperty Name="nombre" ColumnName="nombre" />
+            <ScalarProperty Name="apellido" ColumnName="apellido" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="TravelAgencyModel" ZoomLevel="55">
+        <EntityTypeShape EntityType="TravelAgencyModel.agencia" Width="1.5" PointX="3" PointY="5.5" Height="1.9802864583333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="TravelAgencyModel.reservacion" Width="1.5" PointX="5.25" PointY="1" Height="2.9417936197916656" IsExpanded="true" />
+        <EntityTypeShape EntityType="TravelAgencyModel.rol" Width="1.5" PointX="0.75" PointY="1.625" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="TravelAgencyModel.usuario" Width="1.5" PointX="3" PointY="1.25" Height="2.3648893229166656" IsExpanded="true" />
+        <AssociationConnector Association="TravelAgencyModel.FK_Reservacion_Agencia" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="6.4901432291666667" />
+          <ConnectorPoint PointX="6" PointY="6.4901432291666667" />
+          <ConnectorPoint PointX="6" PointY="3.9417936197916656" />
+        </AssociationConnector>
+        <AssociationConnector Association="TravelAgencyModel.FK_Reservacion_Cliente" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="2.4324446614583328" />
+          <ConnectorPoint PointX="5.25" PointY="2.4324446614583328" />
+        </AssociationConnector>
+        <AssociationConnector Association="TravelAgencyModel.FK_Usuario_Rol" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="2.422841796875" />
+          <ConnectorPoint PointX="3" PointY="2.422841796875" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

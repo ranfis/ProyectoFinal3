@@ -1,0 +1,50 @@
+﻿@model AirlineApp.Models.vuelo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>vuelo</legend>
+
+    <div class="display-label">aerolinea1</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.aerolinea1.descripcion)
+    </div>
+
+    <div class="display-label">aeropuerto</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.aeropuerto.descripcion)
+    </div>
+
+    <div class="display-label">aeropuerto1</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.aeropuerto1.descripcion)
+    </div>
+
+    <div class="display-label">avion1</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.avion1.descripcion)
+    </div>
+
+    <div class="display-label">salida</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.salida)
+    </div>
+
+    <div class="display-label">llegada</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.llegada)
+    </div>
+
+    <div class="display-label">estado</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.estado)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.codigo }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

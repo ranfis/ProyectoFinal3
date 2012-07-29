@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="AirlineModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="AirlineModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="AirlineModelStoreContainer">
           <EntitySet Name="aerolinea" EntityType="AirlineModel.Store.aerolinea" store:Type="Tables" Schema="airline" />
           <EntitySet Name="aeropuerto" EntityType="AirlineModel.Store.aeropuerto" store:Type="Tables" Schema="airline" />
@@ -163,8 +163,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
-    </edmx:StorageModels>
+        <Function Name="LISTVUELOSPORFECHAS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="airline">
+          <Parameter Name="FECHA" Type="datetime" Mode="In" />
+        </Function>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="AirlineModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
@@ -199,6 +201,9 @@
             <End Role="clases" EntitySet="clases" />
             <End Role="configuracion" EntitySet="configuracion" />
           </AssociationSet>
+          <FunctionImport Name="LISTVUELOSPORFECHAS" EntitySet="vuelo" ReturnType="Collection(AirlineModel.vuelo)">
+            <Parameter Name="FECHA" Mode="In" Type="DateTime" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="aerolinea">
           <Key>
@@ -338,6 +343,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <ComplexType Name="LISTVUELOSPORFECHAS_Result" />
+        <ComplexType Name="LISTVUELOSPORFECHAS_Result1" />
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -403,6 +410,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="LISTVUELOSPORFECHAS" FunctionName="AirlineModel.Store.LISTVUELOSPORFECHAS" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -423,7 +431,7 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="AirlineModel">
+      <Diagram Name="AirlineModel" ZoomLevel="55">
         <EntityTypeShape EntityType="AirlineModel.aerolinea" Width="1.5" PointX="0.75" PointY="5" Height="1.5956835937499996" IsExpanded="true" />
         <EntityTypeShape EntityType="AirlineModel.aeropuerto" Width="1.5" PointX="0.75" PointY="1.5" Height="2.3648893229166656" IsExpanded="true" />
         <EntityTypeShape EntityType="AirlineModel.avion" Width="1.5" PointX="0.75" PointY="7.375" Height="1.9802864583333317" IsExpanded="true" />

@@ -13,7 +13,8 @@ namespace TravelAgency
         public static void iniciar()
         {
             validar = new Dictionary<string, Regex>();
-            validar.Add("texto", new Regex("^[A-Z a-z()í]*$"));
+            validar.Add("texto", new Regex("^[A-Za-z áéíóú]*$"));
+            validar.Add("ciudad", new Regex("^[A-Za-z() áéíóú,]*$"));
             validar.Add("numero", new Regex("^[0-9]*$"));
             validar.Add("decimal", new Regex("^[0-9.]*$"));
             validar.Add("cedula", new Regex("^[[0-9]{3}-[0-9]{7}-[0-9]{1}]*$"));

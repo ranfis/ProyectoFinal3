@@ -1,0 +1,38 @@
+﻿@model AirlineApp.Models.aeropuerto
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>aeropuerto</legend>
+
+    <div class="display-label">descripcion</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.descripcion)
+    </div>
+
+    <div class="display-label">ciudad</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ciudad)
+    </div>
+
+    <div class="display-label">pais</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.pais)
+    </div>
+
+    <div class="display-label">direccion</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.direccion)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

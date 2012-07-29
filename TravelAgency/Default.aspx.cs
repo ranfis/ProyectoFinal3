@@ -15,6 +15,7 @@ namespace TravelAgency
             Validador.iniciar();
             txtPartida.Attributes["data-source"] = listaAeropuertos();
             txtDestino.Attributes["data-source"] = listaAeropuertos();
+
         }
         protected String listaAeropuertos()
         {
@@ -40,13 +41,13 @@ namespace TravelAgency
             datepickerPartida.CssClass = "";
             datepickerDestino.CssClass = "";
 
-            if (!(Validador.validar["texto"].IsMatch(txtPartida.Text) && txtPartida.Text.Trim().Length > 0))
+            if (!(Validador.validar["ciudad"].IsMatch(txtPartida.Text) && txtPartida.Text.Trim().Length > 0))
             {
                 txtPartida.CssClass = "error";
                 resultado = false;
             }
 
-            if (!(Validador.validar["texto"].IsMatch(txtDestino.Text) && txtDestino.Text.Trim().Length > 0))
+            if (!(Validador.validar["ciudad"].IsMatch(txtDestino.Text) && txtDestino.Text.Trim().Length > 0))
             {
                 txtDestino.CssClass = "error";
                 resultado = false;
@@ -65,21 +66,10 @@ namespace TravelAgency
             }
             if (resultado)
             {
-                GridView1.DataSource = servicio.buscarVuelos(txtPartida.Text, txtDestino.Text);
+                DateTime fecha = Convert.ToDateTime(datepickerPartida.Text);
+                GridView1.DataSource = servicio.buscarVuelos(txtPartida.Text, txtDestino.Text, fecha);
                 GridView1.DataBind();
             }
         }
-        /*
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            servicio.insertarClase(txtID.Text,txtDesc.Text);
-        }
-
-        protected void Button2_Click(object sender, EventArgs e)
-        {
-            //Tabla.DataSource = servicio.buscarVuelos(txtOrigen.Text, txtDestino.Text, txtFecha1.Text, txtFecha2.Text);
-            Tabla.DataSource = servicio.buscarVuelos();
-            Tabla.DataBind();
-        }*/
     }
 }

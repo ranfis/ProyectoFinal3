@@ -11,3 +11,8 @@ C:\Dropbox\Workspace\ASP\ProyectoFinal3\TravelAgency\bin\TravelAgency.dll
 C:\Dropbox\Workspace\ASP\ProyectoFinal3\TravelAgency\bin\TravelAgency.pdb
 C:\Dropbox\Workspace\ASP\ProyectoFinal3\TravelAgency\obj\Debug\TravelAgency.dll
 C:\Dropbox\Workspace\ASP\ProyectoFinal3\TravelAgency\obj\Debug\TravelAgency.pdb
+C:\Users\Juan Jose\Documents\GitHub\ProyectoFinal3\TravelAgency\bin\TravelAgency.dll
+C:\Users\Juan Jose\Documents\GitHub\ProyectoFinal3\TravelAgency\bin\TravelAgency.pdb
+C:\Users\Juan Jose\Documents\GitHub\ProyectoFinal3\TravelAgency\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Juan Jose\Documents\GitHub\ProyectoFinal3\TravelAgency\obj\Debug\TravelAgency.dll
+C:\Users\Juan Jose\Documents\GitHub\ProyectoFinal3\TravelAgency\obj\Debug\TravelAgency.pdb

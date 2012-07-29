@@ -13,6 +13,49 @@
 </head>
 <body>
     <form runat="server">
+    <div class="modal hide" id="myModal">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">
+                ×
+            </button>
+            <h3>
+                Iniciar Sesion</h3>
+        </div>
+        <div class="modal-body">
+            <table>
+                <tr>
+                    <td>
+                        <div class='login'>
+                            <form action='' method='post' accept-charset='UTF-8'>
+                            <span class="con dark">Usuario:</span>
+                            <br />
+                            <asp:TextBox ClientIDMode="Static" runat="server" ID='txtUser' Style='margin-bottom: 15px;'
+                                type='text' placeholder='Nombre de usuario' name='txtUser'></asp:TextBox>
+                            <br />
+                            <span class="con dark">Contrase&ntilde;a:</span>
+                            <br />
+                            <asp:TextBox ClientIDMode="Static" runat="server" ID='txtPass' Style='margin-bottom: 15px;'
+                                type='password' placeholder='Contraseña' name='txtPass'></asp:TextBox>
+                            <br />
+                            </form>
+                        </div>
+                    </td>
+                    <td>
+                        <img src="../../img/logo.png" height="64px" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="modal-footer">
+            <button clientidmode="Static" id="btnLogin" runat="server" type="button" class='btn btn-success'
+                title="Ingresar" onserverclick="logIn">
+                <span class="con">Ingresar</span>
+            </button>
+            <a href="#" class="btn" data-dismiss="modal"><span class="con dark">Cerrar</span>
+                <br />
+            </a>
+        </div>
+    </div>
     <div class='cssmenu'>
         <ul class="menu">
             <li><a href="Default.aspx"><span class="con">Inicio</span></a></li>
@@ -27,7 +70,15 @@
             </li>
             <li><a href="About.aspx"><span class="con">Acerca de nosotros</span></a></li>
             <li><a href='About.aspx'><span class="con">Contacto</span></a></li>
-            <li><a href='#' onclick="$('#myModal').modal('show')">Ingresar</a></li>
+            <% if (Session["userLoged"] == null)
+               {
+                   Response.Write("<li><a href='#' onclick=$('#myModal').modal('show') >Ingresar</a></li>");
+               }
+               else
+               {
+                   Response.Write("<li><a href='#'>Cerrar sesion</a></li>");
+               } %>
+            
         </ul>
     </div>
     <div class="container-fluid" id="content">

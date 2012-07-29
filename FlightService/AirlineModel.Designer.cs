@@ -8,13 +8,12 @@
 //------------------------------------------------------------------------------
 
 using System;
-using System.ComponentModel;
-using System.Data.EntityClient;
 using System.Data.Objects;
 using System.Data.Objects.DataClasses;
-using System.Linq;
-using System.Runtime.Serialization;
+using System.Data.EntityClient;
+using System.ComponentModel;
 using System.Xml.Serialization;
+using System.Runtime.Serialization;
 
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
@@ -173,7 +172,6 @@ namespace FlightService
         private ObjectSet<vuelo> _vuelo;
 
         #endregion
-
         #region AddTo Methods
     
         /// <summary>
@@ -225,11 +223,52 @@ namespace FlightService
         }
 
         #endregion
+        #region Function Imports
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="fECHA">No Metadata Documentation available.</param>
+        public ObjectResult<vuelo> LISTVUELOSPORFECHAS(Nullable<global::System.DateTime> fECHA)
+        {
+            ObjectParameter fECHAParameter;
+            if (fECHA.HasValue)
+            {
+                fECHAParameter = new ObjectParameter("FECHA", fECHA);
+            }
+            else
+            {
+                fECHAParameter = new ObjectParameter("FECHA", typeof(global::System.DateTime));
+            }
+    
+            return base.ExecuteFunction<vuelo>("LISTVUELOSPORFECHAS", fECHAParameter);
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="mergeOption"></param>
+        /// <param name="fECHA">No Metadata Documentation available.</param>
+        public ObjectResult<vuelo> LISTVUELOSPORFECHAS(Nullable<global::System.DateTime> fECHA, MergeOption mergeOption)
+        {
+            ObjectParameter fECHAParameter;
+            if (fECHA.HasValue)
+            {
+                fECHAParameter = new ObjectParameter("FECHA", fECHA);
+            }
+            else
+            {
+                fECHAParameter = new ObjectParameter("FECHA", typeof(global::System.DateTime));
+            }
+    
+            return base.ExecuteFunction<vuelo>("LISTVUELOSPORFECHAS", mergeOption, fECHAParameter);
+        }
 
+        #endregion
     }
+    
 
     #endregion
-
+    
     #region Entities
     
     /// <summary>
@@ -256,7 +295,6 @@ namespace FlightService
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -311,7 +349,6 @@ namespace FlightService
         partial void OndescripcionChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -338,7 +375,6 @@ namespace FlightService
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -371,7 +407,6 @@ namespace FlightService
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -498,7 +533,6 @@ namespace FlightService
         partial void OndireccionChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -547,7 +581,6 @@ namespace FlightService
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -576,7 +609,6 @@ namespace FlightService
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -655,7 +687,6 @@ namespace FlightService
         partial void OncapacidadChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -704,7 +735,6 @@ namespace FlightService
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -729,7 +759,6 @@ namespace FlightService
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -784,7 +813,6 @@ namespace FlightService
         partial void OndescripcionChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -811,7 +839,6 @@ namespace FlightService
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -838,7 +865,6 @@ namespace FlightService
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -920,7 +946,6 @@ namespace FlightService
         partial void OncapacidadChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -1001,7 +1026,6 @@ namespace FlightService
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -1038,7 +1062,6 @@ namespace FlightService
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -1237,7 +1260,6 @@ namespace FlightService
         partial void OnestadoChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -1394,10 +1416,31 @@ namespace FlightService
         }
 
         #endregion
-
     }
 
     #endregion
+    #region ComplexTypes
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmComplexTypeAttribute(NamespaceName="AirlineModel", Name="LISTVUELOSPORFECHAS_Result")]
+    [DataContractAttribute(IsReference=true)]
+    [Serializable()]
+    public partial class LISTVUELOSPORFECHAS_Result : ComplexObject
+    {
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmComplexTypeAttribute(NamespaceName="AirlineModel", Name="LISTVUELOSPORFECHAS_Result1")]
+    [DataContractAttribute(IsReference=true)]
+    [Serializable()]
+    public partial class LISTVUELOSPORFECHAS_Result1 : ComplexObject
+    {
+    }
 
+    #endregion
     
 }
