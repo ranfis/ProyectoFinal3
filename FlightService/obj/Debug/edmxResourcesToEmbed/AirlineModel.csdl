@@ -31,8 +31,8 @@
       <End Role="clases" EntitySet="clases" />
       <End Role="configuracion" EntitySet="configuracion" />
     </AssociationSet>
-    <FunctionImport Name="LISTVUELOSPORFECHAS" EntitySet="vuelo" ReturnType="Collection(AirlineModel.vuelo)">
-      <Parameter Name="FECHA" Mode="In" Type="DateTime" />
+    <FunctionImport Name="LISTVUELOSPORFECHAS3" EntitySet="vuelo" ReturnType="Collection(AirlineModel.vuelo)">
+      <Parameter Name="FECHA" Mode="In" Type="String" />
     </FunctionImport>
   </EntityContainer>
   <EntityType Name="aerolinea">
@@ -173,6 +173,4 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <ComplexType Name="LISTVUELOSPORFECHAS_Result" />
-  <ComplexType Name="LISTVUELOSPORFECHAS_Result1" />
 </Schema>

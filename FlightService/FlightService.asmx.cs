@@ -18,21 +18,36 @@ namespace FlightService
     {
         AirlineEntities airline = new AirlineEntities();
         [WebMethod]
-        public List<vuelo> buscarVuelos(String partida, String destino, DateTime fecha)
+        public List<vuelo> buscarVuelos(String partida, String destino, String fecha)
         {
-
-            String par = partida.Substring(partida.IndexOf("(")).Replace("(", "").Replace(")", "");
-            String des = destino.Substring(destino.IndexOf("(")).Replace("(", "").Replace(")", "");
-            var vuelos = airline.LISTVUELOSPORFECHAS(fecha);
             List<vuelo> filtro = new List<vuelo>();
-            filtro = vuelos.ToList().FindAll(x => (x.origen.Equals(par) && x.destino.Equals(des)));
+            try
+            {
 
+                String par = partida.Substring(partida.IndexOf("(")).Replace("(", "").Replace(")", "");
+                String des = destino.Substring(destino.IndexOf("(")).Replace("(", "").Replace(")", "");
+
+                DateTime date = Convert.ToDateTime(fecha);
+                var vuelos = airline.LISTVUELOSPORFECHAS3(date.ToString("yyyy-dd-MM"));
+                filtro = vuelos.ToList().FindAll(x => (x.origen.Equals(par) && x.destino.Equals(des)));
+            }
+            catch(Exception){
+                filtro = null;
+            }
             return filtro;
         }
         [WebMethod]
         public List<aeropuerto> listaAeropuertos()
         {
-            return airline.aeropuerto.ToList();
+            List<aeropuerto> aeropuertos;
+            try
+            {
+                aeropuertos = airline.aeropuerto.ToList();
+            }
+            catch(Exception){
+                aeropuertos = null;
+            }
+            return aeropuertos;
         }
     }
 }

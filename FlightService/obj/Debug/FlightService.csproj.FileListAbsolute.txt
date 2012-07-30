@@ -6,9 +6,13 @@ C:\Dropbox\Workspace\ASP\ProyectoFinal3\FlightService\bin\FlightService.dll
 C:\Dropbox\Workspace\ASP\ProyectoFinal3\FlightService\bin\FlightService.pdb
 C:\Dropbox\Workspace\ASP\ProyectoFinal3\FlightService\obj\Debug\FlightService.dll
 C:\Dropbox\Workspace\ASP\ProyectoFinal3\FlightService\obj\Debug\FlightService.pdb
-C:\Dropbox\Workspace\ASP\ProyectoFinal3\FlightService\obj\Debug\FlightService.csprojResolveAssemblyReference.cache
 C:\Users\Juan Jose\Documents\GitHub\ProyectoFinal3\FlightService\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Juan Jose\Documents\GitHub\ProyectoFinal3\FlightService\bin\FlightService.dll
 C:\Users\Juan Jose\Documents\GitHub\ProyectoFinal3\FlightService\bin\FlightService.pdb
 C:\Users\Juan Jose\Documents\GitHub\ProyectoFinal3\FlightService\obj\Debug\FlightService.dll
 C:\Users\Juan Jose\Documents\GitHub\ProyectoFinal3\FlightService\obj\Debug\FlightService.pdb
+C:\Users\ranfis\Documents\GitHub\ProyectoFinal3\FlightService\bin\FlightService.dll
+C:\Users\ranfis\Documents\GitHub\ProyectoFinal3\FlightService\bin\FlightService.pdb
+C:\Users\ranfis\Documents\GitHub\ProyectoFinal3\FlightService\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\ranfis\Documents\GitHub\ProyectoFinal3\FlightService\obj\Debug\FlightService.dll
+C:\Users\ranfis\Documents\GitHub\ProyectoFinal3\FlightService\obj\Debug\FlightService.pdb

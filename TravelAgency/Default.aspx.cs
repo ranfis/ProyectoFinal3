@@ -20,18 +20,24 @@ namespace TravelAgency
         protected String listaAeropuertos()
         {
             System.Text.StringBuilder aeropuertos = new System.Text.StringBuilder("[");
-            var lista = servicio.listaAeropuertos();
-            foreach (var x in lista)
+            try
             {
-                aeropuertos.Append('"'.ToString());
-                aeropuertos.Append(x.ciudad);
-                aeropuertos.Append(" (" + x.codigo + ")");
-                aeropuertos.Append('"'.ToString() + ",");
+                var lista = servicio.listaAeropuertos();
+                foreach (var x in lista)
+                {
+                    aeropuertos.Append('"'.ToString());
+                    aeropuertos.Append(x.ciudad);
+                    aeropuertos.Append(" (" + x.codigo + ")");
+                    aeropuertos.Append('"'.ToString() + ",");
+                }
+                aeropuertos.Remove(aeropuertos.Length - 1, 1);
+                aeropuertos.Append("]");
+                return aeropuertos.ToString();
             }
-            aeropuertos.Remove(aeropuertos.Length - 1, 1);
-            aeropuertos.Append("]");
-            return aeropuertos.ToString();
-
+            catch (Exception)
+            {
+                return "";
+            }
         }
         protected void validarReservacion(object sender, EventArgs e)
         {
@@ -39,7 +45,7 @@ namespace TravelAgency
             txtPartida.CssClass = "";
             txtDestino.CssClass = "";
             datepickerPartida.CssClass = "";
-            datepickerDestino.CssClass = "";
+            datepickerRetorno.CssClass = "";
 
             if (!(Validador.validar["ciudad"].IsMatch(txtPartida.Text) && txtPartida.Text.Trim().Length > 0))
             {
@@ -52,23 +58,34 @@ namespace TravelAgency
                 txtDestino.CssClass = "error";
                 resultado = false;
             }
-
-            if (!(datepickerPartida.Text.Trim().Length > 0))
+            if (!(Validador.validar["fecha"].IsMatch(datepickerPartida.Text) && datepickerPartida.Text.Trim().Length > 0))
             {
                 datepickerPartida.CssClass = "error";
                 resultado = false;
             }
 
-            if (!(datepickerDestino.Text.Trim().Length > 0))
+            if (!(datepickerRetorno.Text.Trim().Length > 0))
             {
-                datepickerDestino.CssClass = "error";
+                datepickerRetorno.CssClass = "error";
                 resultado = false;
             }
+
             if (resultado)
             {
-                DateTime fecha = Convert.ToDateTime(datepickerPartida.Text);
-                GridView1.DataSource = servicio.buscarVuelos(txtPartida.Text, txtDestino.Text, fecha);
-                GridView1.DataBind();
+                try
+                {
+                    GridView1.DataSource = servicio.buscarVuelos(txtPartida.Text, txtDestino.Text, datepickerPartida.Text);
+
+                }
+                catch (Exception)
+                {
+                    GridView1.DataSource = new List<String> { "No se han encontrado vuelos" };
+                }
+                finally
+                {
+                    GridView1.DataBind();
+                }
+                
             }
         }
     }

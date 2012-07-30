@@ -60,6 +60,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <FunctionImportMapping FunctionImportName="LISTVUELOSPORFECHAS" FunctionName="AirlineModel.Store.LISTVUELOSPORFECHAS" />
+    <FunctionImportMapping FunctionImportName="LISTVUELOSPORFECHAS3" FunctionName="AirlineModel.Store.LISTVUELOSPORFECHAS" />
   </EntityContainerMapping>
 </Mapping>

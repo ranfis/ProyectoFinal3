@@ -47,7 +47,7 @@
             </table>
         </div>
         <div class="modal-footer">
-            <button clientidmode="Static" id="btnLogin" runat="server" type="button" class='btn btn-success'
+            <button clientidmode="Static" id="btnLogin" runat="server" type="submit" class='btn btn-success'
                 title="Ingresar" onserverclick="logIn">
                 <span class="con">Ingresar</span>
             </button>
@@ -76,7 +76,7 @@
                }
                else
                {
-                   Response.Write("<li><a href='#'>Cerrar sesion</a></li>");
+                   Response.Write("<li><a href='#' onserverclick='logOut' >Cerrar sesion</a></li>");
                } %>
             
         </ul>

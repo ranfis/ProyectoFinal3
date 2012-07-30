@@ -5,13 +5,14 @@
     $('.modal').modal('hide')
     $('.btn').tooltip()
     //$('input').tooltip()
+
     $("#datepickerPartida").datepicker({
         minDate: +2,
         maxDate: "+1M +10D",
         showOtherMonths: true,
         selectOtherMonths: true
     })
-    $("#datepickerDestino").datepicker({
+    $("#datepickerRetorno").datepicker({
         minDate: +3,
         maxDate: "+1M +10D",
         showOtherMonths: true,

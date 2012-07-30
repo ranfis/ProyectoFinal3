@@ -13,7 +13,11 @@ namespace TravelAgency
         TravelAgencyEntities agency = new TravelAgencyEntities();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Session.Clear();
+        }
+        protected void logOut(object sender, EventArgs e)
+        {
+            Session.Clear();
         }
         protected void logIn(object sender, EventArgs e)
         {

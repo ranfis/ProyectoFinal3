@@ -11,3 +11,12 @@ C:\Users\Juan Jose\Documents\GitHub\ProyectoFinal3\AirlineApp\AirlineApp\bin\Ent
 C:\Users\Juan Jose\Documents\GitHub\ProyectoFinal3\AirlineApp\AirlineApp\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Juan Jose\Documents\GitHub\ProyectoFinal3\AirlineApp\AirlineApp\obj\Debug\AirlineApp.dll
 C:\Users\Juan Jose\Documents\GitHub\ProyectoFinal3\AirlineApp\AirlineApp\obj\Debug\AirlineApp.pdb
+C:\Dropbox\Workspace\ASP\ProyectoFinal3\AirlineApp\AirlineApp\bin\AirlineApp.dll
+C:\Dropbox\Workspace\ASP\ProyectoFinal3\AirlineApp\AirlineApp\bin\AirlineApp.pdb
+C:\Dropbox\Workspace\ASP\ProyectoFinal3\AirlineApp\AirlineApp\obj\Debug\AirlineApp.dll
+C:\Dropbox\Workspace\ASP\ProyectoFinal3\AirlineApp\AirlineApp\obj\Debug\AirlineApp.pdb
+C:\Users\ranfis\Documents\GitHub\ProyectoFinal3\AirlineApp\AirlineApp\bin\AirlineApp.dll
+C:\Users\ranfis\Documents\GitHub\ProyectoFinal3\AirlineApp\AirlineApp\bin\AirlineApp.pdb
+C:\Users\ranfis\Documents\GitHub\ProyectoFinal3\AirlineApp\AirlineApp\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\ranfis\Documents\GitHub\ProyectoFinal3\AirlineApp\AirlineApp\obj\Debug\AirlineApp.dll
+C:\Users\ranfis\Documents\GitHub\ProyectoFinal3\AirlineApp\AirlineApp\obj\Debug\AirlineApp.pdb

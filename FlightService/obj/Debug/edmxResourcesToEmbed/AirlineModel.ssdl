@@ -159,6 +159,6 @@
     </ReferentialConstraint>
   </Association>
   <Function Name="LISTVUELOSPORFECHAS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="airline">
-    <Parameter Name="FECHA" Type="datetime" Mode="In" />
+    <Parameter Name="FECHA" Type="varchar" Mode="In" />
   </Function>
 </Schema>
