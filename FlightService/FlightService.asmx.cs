@@ -31,10 +31,16 @@ namespace FlightService
                 var vuelos = airline.LISTVUELOSPORFECHAS3(date.ToString("yyyy-dd-MM"));
                 filtro = vuelos.ToList().FindAll(x => (x.origen.Equals(par) && x.destino.Equals(des)));
             }
-            catch(Exception){
+            catch (Exception)
+            {
                 filtro = null;
             }
             return filtro;
+        }
+        [WebMethod]
+        public List<vuelo> buscarVuelos2()
+        {
+            return airline.vuelo.ToList();
         }
         [WebMethod]
         public List<aeropuerto> listaAeropuertos()
@@ -44,7 +50,8 @@ namespace FlightService
             {
                 aeropuertos = airline.aeropuerto.ToList();
             }
-            catch(Exception){
+            catch (Exception)
+            {
                 aeropuertos = null;
             }
             return aeropuertos;

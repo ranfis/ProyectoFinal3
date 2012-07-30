@@ -96,6 +96,16 @@
           <s:extension base="tns:EntityReference" />
         </s:complexContent>
       </s:complexType>
+      <s:element name="buscarVuelos2">
+        <s:complexType />
+      </s:element>
+      <s:element name="buscarVuelos2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="buscarVuelos2Result" type="tns:ArrayOfVuelo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="listaAeropuertos">
         <s:complexType />
       </s:element>
@@ -132,6 +142,12 @@
   <wsdl:message name="buscarVuelosSoapOut">
     <wsdl:part name="parameters" element="tns:buscarVuelosResponse" />
   </wsdl:message>
+  <wsdl:message name="buscarVuelos2SoapIn">
+    <wsdl:part name="parameters" element="tns:buscarVuelos2" />
+  </wsdl:message>
+  <wsdl:message name="buscarVuelos2SoapOut">
+    <wsdl:part name="parameters" element="tns:buscarVuelos2Response" />
+  </wsdl:message>
   <wsdl:message name="listaAeropuertosSoapIn">
     <wsdl:part name="parameters" element="tns:listaAeropuertos" />
   </wsdl:message>
@@ -143,6 +159,10 @@
       <wsdl:input message="tns:buscarVuelosSoapIn" />
       <wsdl:output message="tns:buscarVuelosSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="buscarVuelos2">
+      <wsdl:input message="tns:buscarVuelos2SoapIn" />
+      <wsdl:output message="tns:buscarVuelos2SoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="listaAeropuertos">
       <wsdl:input message="tns:listaAeropuertosSoapIn" />
       <wsdl:output message="tns:listaAeropuertosSoapOut" />
@@ -152,6 +172,15 @@
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="buscarVuelos">
       <soap:operation soapAction="http://tempuri.org/buscarVuelos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarVuelos2">
+      <soap:operation soapAction="http://tempuri.org/buscarVuelos2" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -173,6 +202,15 @@
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="buscarVuelos">
       <soap12:operation soapAction="http://tempuri.org/buscarVuelos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarVuelos2">
+      <soap12:operation soapAction="http://tempuri.org/buscarVuelos2" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

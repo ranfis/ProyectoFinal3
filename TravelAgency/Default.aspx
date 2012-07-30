@@ -5,18 +5,19 @@
     <title>Travel Agency | Inicio</title>
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
-    <div class="pnlReserv">
+    <div class="bluePanel mid">
         <table class="pnlReserv">
             <tr>
                 <td>
                     <div class="btn-group" data-toggle="buttons-radio">
-                        <button clientidmode="Static" class="btn active" type="button" onclick="datepickerRetorno.readOnly = false;" title="Reservar viaje de ida y vuelta">
+                        <button clientidmode="Static" class="btn active" type="button" onclick="datepickerRetorno.readOnly = false;"
+                            title="Reservar viaje de ida y vuelta">
                             <span class="con dark">Ida y vuelta</span>
                         </button>
-                        <button clientidmode="Static" class="btn" type="button" onclick="datepickerRetorno.readOnly = true;" title="Reservar viaje de ida">
+                        <button clientidmode="Static" class="btn" type="button" onclick="datepickerRetorno.readOnly = true;"
+                            title="Reservar viaje de ida">
                             <span class="con dark">Ida</span>
                         </button>
-                        
                     </div>
                 </td>
             </tr>
@@ -48,10 +49,10 @@
             </tr>
             <tr>
                 <td>
-                    <asp:TextBox ID="datepickerPartida" runat="server" ClientIDMode="Static" ></asp:TextBox>
+                    <asp:TextBox ID="datepickerPartida" runat="server" ClientIDMode="Static"></asp:TextBox>
                 </td>
                 <td>
-                    <asp:TextBox ID="datepickerRetorno" runat="server" ClientIDMode="Static" ></asp:TextBox>
+                    <asp:TextBox ID="datepickerRetorno" runat="server" ClientIDMode="Static"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -64,8 +65,10 @@
             </tr>
         </table>
     </div>
-    <asp:GridView ID="GridView1" CssClass="mGrid" runat="server">
+    <asp:GridView ID="GridView1" CssClass="mGrid" runat="server" ClientIDMode="Static">
+        
     </asp:GridView>
+    
     <!-- JQuery -->
     <link type="text/css" href="../../jquery/css/jquery-ui-1.8.21.custom.css" rel="stylesheet" />
     <script type="text/javascript" src="../../jquery/js/jquery-1.7.2.min.js"></script>

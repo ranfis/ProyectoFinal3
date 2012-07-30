@@ -72,11 +72,11 @@
             <li><a href='About.aspx'><span class="con">Contacto</span></a></li>
             <% if (Session["userLoged"] == null)
                {
-                   Response.Write("<li><a href='#' onclick=$('#myModal').modal('show') >Ingresar</a></li>");
+                   Response.Write("<li><a href='#' runat='server' onclick='fp.click();' class='usuario'>Ingresar</a></li>");
                }
                else
                {
-                   Response.Write("<li><a href='#' onserverclick='logOut' >Cerrar sesion</a></li>");
+                   Response.Write("<li><a href='#' onserverclick='logOut' class='usuario' >Cerrar sesion</a></li>");
                } %>
             
         </ul>
@@ -112,11 +112,13 @@
                 </ul>
             </div>
             <div class="span10" id="main">
+            <% Response.Write(err); %>
                 <asp:ContentPlaceHolder ID="MainContent" runat="server" />
             </div>
         </div>
     </div>
     <footer> &copy; 2012 JRS Software. All Rights Reserved. </footer>
+    <button id="fp" runat="server" onclick="$('#myModal').modal('show')" type="button" style="display:none;" ></button>
     </form>
 </body>
 </html>

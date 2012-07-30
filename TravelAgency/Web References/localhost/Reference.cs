@@ -35,6 +35,8 @@ namespace TravelAgency.localhost {
         
         private System.Threading.SendOrPostCallback buscarVuelosOperationCompleted;
         
+        private System.Threading.SendOrPostCallback buscarVuelos2OperationCompleted;
+        
         private System.Threading.SendOrPostCallback listaAeropuertosOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
@@ -79,6 +81,9 @@ namespace TravelAgency.localhost {
         public event buscarVuelosCompletedEventHandler buscarVuelosCompleted;
         
         /// <remarks/>
+        public event buscarVuelos2CompletedEventHandler buscarVuelos2Completed;
+        
+        /// <remarks/>
         public event listaAeropuertosCompletedEventHandler listaAeropuertosCompleted;
         
         /// <remarks/>
@@ -111,6 +116,33 @@ namespace TravelAgency.localhost {
             if ((this.buscarVuelosCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.buscarVuelosCompleted(this, new buscarVuelosCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/buscarVuelos2", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public vuelo[] buscarVuelos2() {
+            object[] results = this.Invoke("buscarVuelos2", new object[0]);
+            return ((vuelo[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void buscarVuelos2Async() {
+            this.buscarVuelos2Async(null);
+        }
+        
+        /// <remarks/>
+        public void buscarVuelos2Async(object userState) {
+            if ((this.buscarVuelos2OperationCompleted == null)) {
+                this.buscarVuelos2OperationCompleted = new System.Threading.SendOrPostCallback(this.OnbuscarVuelos2OperationCompleted);
+            }
+            this.InvokeAsync("buscarVuelos2", new object[0], this.buscarVuelos2OperationCompleted, userState);
+        }
+        
+        private void OnbuscarVuelos2OperationCompleted(object arg) {
+            if ((this.buscarVuelos2Completed != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.buscarVuelos2Completed(this, new buscarVuelos2CompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -573,6 +605,32 @@ namespace TravelAgency.localhost {
         private object[] results;
         
         internal buscarVuelosCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public vuelo[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((vuelo[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.1")]
+    public delegate void buscarVuelos2CompletedEventHandler(object sender, buscarVuelos2CompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.1")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class buscarVuelos2CompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal buscarVuelos2CompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

@@ -10,11 +10,18 @@ namespace TravelAgency
     public partial class _Default : System.Web.UI.Page
     {
         localhost.FlightService servicio = new localhost.FlightService();
+        TravelAgency.Models.TravelAgencyEntities agency = new TravelAgency.Models.TravelAgencyEntities();
         protected void Page_Load(object sender, EventArgs e)
         {
             Validador.iniciar();
             txtPartida.Attributes["data-source"] = listaAeropuertos();
             txtDestino.Attributes["data-source"] = listaAeropuertos();
+
+            var vuelos = servicio.buscarVuelos2();
+
+
+
+
 
         }
         protected String listaAeropuertos()
@@ -85,7 +92,7 @@ namespace TravelAgency
                 {
                     GridView1.DataBind();
                 }
-                
+
             }
         }
     }

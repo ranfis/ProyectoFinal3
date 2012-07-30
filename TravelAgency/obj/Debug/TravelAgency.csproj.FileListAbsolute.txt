@@ -16,3 +16,8 @@ C:\Users\Juan Jose\Documents\GitHub\ProyectoFinal3\TravelAgency\bin\TravelAgency
 C:\Users\Juan Jose\Documents\GitHub\ProyectoFinal3\TravelAgency\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Juan Jose\Documents\GitHub\ProyectoFinal3\TravelAgency\obj\Debug\TravelAgency.dll
 C:\Users\Juan Jose\Documents\GitHub\ProyectoFinal3\TravelAgency\obj\Debug\TravelAgency.pdb
+C:\ProyectoFinal3\TravelAgency\bin\TravelAgency.dll
+C:\ProyectoFinal3\TravelAgency\bin\TravelAgency.pdb
+C:\ProyectoFinal3\TravelAgency\obj\Debug\TravelAgency.dll
+C:\ProyectoFinal3\TravelAgency\obj\Debug\TravelAgency.pdb
+C:\ProyectoFinal3\TravelAgency\obj\Debug\TravelAgency.csprojResolveAssemblyReference.cache

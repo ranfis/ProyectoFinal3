@@ -84,6 +84,7 @@
       <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\localhost\FlightService.disco" />
+    <Content Include="Home\Reservacion\Reservacion.aspx" />
     <Content Include="img\logo.png" />
     <Content Include="jquery\css\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="jquery\css\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -103,7 +104,6 @@
     <Content Include="jquery\js\jquery-ui-1.8.21.custom.min.js" />
     <Content Include="js\calls.js" />
     <Content Include="js\functions.js" />
-    <Content Include="reservacion\Index.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -166,7 +166,14 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="class\MD5Generator.cs" />
+    <Compile Include="class\Encriptador.cs" />
+    <Compile Include="Home\Reservacion\Reservacion.aspx.cs">
+      <DependentUpon>Reservacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home\Reservacion\Reservacion.aspx.designer.cs">
+      <DependentUpon>Reservacion.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Models\TravelAgencyModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -177,13 +184,6 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
-    <Compile Include="reservacion\Index.aspx.cs">
-      <DependentUpon>Index.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="reservacion\Index.aspx.designer.cs">
-      <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
