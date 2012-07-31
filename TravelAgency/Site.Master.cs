@@ -13,11 +13,16 @@ namespace TravelAgency
         public static String err;
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Session.Clear();
+            
+        }
+        public static String getErr()
+        {
+
+            return err;
         }
         protected void logOut(object sender, EventArgs e)
         {
-            //Session.Clear();
+            Session.Clear();
         }
         protected void logIn(object sender, EventArgs e)
         {
@@ -39,12 +44,21 @@ namespace TravelAgency
                 {
                     txtUser.CssClass = "error";
                     txtPass.CssClass = "error";
+                    Session["userLoged"] = "";
                 }
             }
             catch (Exception)
             {
-                err += " Login ";
+                txtUser.CssClass = "error";
+                txtPass.CssClass = "error";
+                Session["userLoged"] = "";
+                Response.Redirect("/");
             }
+        }
+
+        protected void Unnamed1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

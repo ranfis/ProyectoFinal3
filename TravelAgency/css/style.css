@@ -15,6 +15,7 @@ body {
 }
 #main {
 	padding: 8px;
+	padding-top:64px;
 }
 #sidebar {
 	border-right: 1px solid black;
@@ -81,7 +82,7 @@ table.vuelos
 }
 td.vuelos,th.vuelos
 {
-     border:1px solid white;
+     
      text-align:center;
      height:48px;
 }
@@ -118,7 +119,11 @@ div.bluePanel
 {
  width:100%;
 }
-
+tr
+{
+ margin: 2px; 
+padding: 2px;    
+}
 .login {
 	padding: 16px;
 	margin: auto;

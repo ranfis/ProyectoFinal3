@@ -16,13 +16,7 @@ namespace TravelAgency
             Validador.iniciar();
             txtPartida.Attributes["data-source"] = listaAeropuertos();
             txtDestino.Attributes["data-source"] = listaAeropuertos();
-
             var vuelos = servicio.buscarVuelos2();
-
-
-
-
-
         }
         protected String listaAeropuertos()
         {
@@ -48,6 +42,7 @@ namespace TravelAgency
         }
         protected void validarReservacion(object sender, EventArgs e)
         {
+            
             bool resultado = true;
             txtPartida.CssClass = "";
             txtDestino.CssClass = "";
@@ -81,8 +76,13 @@ namespace TravelAgency
             {
                 try
                 {
-                    GridView1.DataSource = servicio.buscarVuelos(txtPartida.Text, txtDestino.Text, datepickerPartida.Text);
-
+                    HttpCookie cookie = new HttpCookie("reservacion");
+                    cookie.Values["partida"] = txtPartida.Text;
+                    cookie.Values["destino"] = txtDestino.Text;
+                    cookie.Values["fechapartida"] = datepickerPartida.Text;
+                    cookie.Values["fecharegreso"] = datepickerRetorno.Text;
+                    Response.Cookies.Add(cookie);
+                    Response.Redirect("Reservacion.aspx");
                 }
                 catch (Exception)
                 {

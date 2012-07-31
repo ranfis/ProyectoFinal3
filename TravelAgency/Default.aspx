@@ -69,14 +69,5 @@
         
     </asp:GridView>
     
-    <!-- JQuery -->
-    <link type="text/css" href="../../jquery/css/jquery-ui-1.8.21.custom.css" rel="stylesheet" />
-    <script type="text/javascript" src="../../jquery/js/jquery-1.7.2.min.js"></script>
-    <script type="text/javascript" src="../../jquery/js/jquery-ui-1.8.21.custom.min.js"></script>
-    <!-- JQuery -->
-    <!-- Bootstrap -->
-    <script src="../../bootstrap/js/bootstrap.js"></script>
-    <!-- Bootstrap -->
-    <script type="text/javascript" src="../../js/calls.js"></script>
-    <script type="text/javascript" src="../../js/functions.js"></script>
+
 </asp:Content>

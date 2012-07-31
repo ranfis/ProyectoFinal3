@@ -84,8 +84,8 @@
       <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\localhost\FlightService.disco" />
-    <Content Include="Home\Reservacion\Reservacion.aspx" />
     <Content Include="img\logo.png" />
+    <Content Include="Index.aspx" />
     <Content Include="jquery\css\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="jquery\css\images\ui-bg_glass_55_fbf9ee_1x400.png" />
     <Content Include="jquery\css\images\ui-bg_glass_65_ffffff_1x400.png" />
@@ -104,6 +104,7 @@
     <Content Include="jquery\js\jquery-ui-1.8.21.custom.min.js" />
     <Content Include="js\calls.js" />
     <Content Include="js\functions.js" />
+    <Content Include="Reservacion.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -167,11 +168,18 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="class\Encriptador.cs" />
-    <Compile Include="Home\Reservacion\Reservacion.aspx.cs">
+    <Compile Include="Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reservacion.aspx.cs">
       <DependentUpon>Reservacion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Home\Reservacion\Reservacion.aspx.designer.cs">
+    <Compile Include="Reservacion.aspx.designer.cs">
       <DependentUpon>Reservacion.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\TravelAgencyModel.Designer.cs">

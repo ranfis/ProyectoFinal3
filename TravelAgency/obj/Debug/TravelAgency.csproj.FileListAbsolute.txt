@@ -20,4 +20,3 @@ C:\ProyectoFinal3\TravelAgency\bin\TravelAgency.dll
 C:\ProyectoFinal3\TravelAgency\bin\TravelAgency.pdb
 C:\ProyectoFinal3\TravelAgency\obj\Debug\TravelAgency.dll
 C:\ProyectoFinal3\TravelAgency\obj\Debug\TravelAgency.pdb
-C:\ProyectoFinal3\TravelAgency\obj\Debug\TravelAgency.csprojResolveAssemblyReference.cache
