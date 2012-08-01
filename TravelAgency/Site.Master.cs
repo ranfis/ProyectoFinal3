@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.UI.HtmlControls;
 
 namespace TravelAgency
 {
@@ -15,6 +16,7 @@ namespace TravelAgency
         {
             
         }
+
         public static String getErr()
         {
 
@@ -44,7 +46,7 @@ namespace TravelAgency
                 {
                     txtUser.CssClass = "error";
                     txtPass.CssClass = "error";
-                    Session["userLoged"] = "";
+                    //Session["userLoged"] = "";
                 }
             }
             catch (Exception)

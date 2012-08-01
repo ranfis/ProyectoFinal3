@@ -8,17 +8,20 @@ body {
 	margin-top: 16px;
 	margin-bottom: 16px;
 	border-radius: 16px;
+	
 }
 #content {
 	border-right: 1px solid black;
 	border-left: 1px solid black;
+	min-height:500px;
 }
 #main {
 	padding: 8px;
-	padding-top:64px;
+	padding-top:16px;
 }
 #sidebar {
 	border-right: 1px solid black;
+	min-height:500px;
 }
 footer {
 	background: #141414;
@@ -75,16 +78,21 @@ span.dark {
 }
 table.reserv {
 	margin: auto;
+	
 }
 table.vuelos
 {
     width:100%;
+    
 }
 td.vuelos,th.vuelos
 {
-     
      text-align:center;
      height:48px;
+     border-color:White;
+     margin-top:2px;
+     padding-top:16px;
+
 }
 td.right
 {
@@ -117,21 +125,30 @@ div.bluePanel
 }
 .full
 {
- width:100%;
+ width:90%;
+}
+.tab-pane
+{
+ padding:2px;   
 }
 tr
 {
  margin: 2px; 
 padding: 2px;    
+
+}
+.modal
+{
+ width:400px;
+ text-align:center;
+   margin-left:-200px;
 }
 .login {
 	padding: 16px;
 	margin: auto;
 	height: 116px;
 }
-.modal {
-	width: 400px;
-}
+
 input.error {
 	background-color: pink;
 	border-color: Red;

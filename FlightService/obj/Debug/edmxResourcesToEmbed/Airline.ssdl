@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="airlineModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="airlineModelStoreContainer">
+    <EntitySet Name="aerolinea" EntityType="airlineModel.Store.aerolinea" store:Type="Tables" Schema="airline" />
+    <EntitySet Name="aeropuerto" EntityType="airlineModel.Store.aeropuerto" store:Type="Tables" Schema="airline" />
+    <EntitySet Name="avion" EntityType="airlineModel.Store.avion" store:Type="Tables" Schema="airline" />
+    <EntitySet Name="clases" EntityType="airlineModel.Store.clases" store:Type="Tables" Schema="airline" />
+    <EntitySet Name="configuracion" EntityType="airlineModel.Store.configuracion" store:Type="Tables" Schema="airline" />
+    <EntitySet Name="usuario" EntityType="airlineModel.Store.usuario" store:Type="Tables" Schema="airline" />
+    <EntitySet Name="vuelo" EntityType="airlineModel.Store.vuelo" store:Type="Tables" Schema="airline" />
+    <AssociationSet Name="FK_Configuracion_Avion" Association="airlineModel.Store.FK_Configuracion_Avion">
+      <End Role="avion" EntitySet="avion" />
+      <End Role="configuracion" EntitySet="configuracion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Configuracion_Clase" Association="airlineModel.Store.FK_Configuracion_Clase">
+      <End Role="clases" EntitySet="clases" />
+      <End Role="configuracion" EntitySet="configuracion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vuelo_Aerolinea" Association="airlineModel.Store.FK_Vuelo_Aerolinea">
+      <End Role="aerolinea" EntitySet="aerolinea" />
+      <End Role="vuelo" EntitySet="vuelo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vuelo_AeropuertoDestino" Association="airlineModel.Store.FK_Vuelo_AeropuertoDestino">
+      <End Role="aeropuerto" EntitySet="aeropuerto" />
+      <End Role="vuelo" EntitySet="vuelo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vuelo_AeropuertoOrigen" Association="airlineModel.Store.FK_Vuelo_AeropuertoOrigen">
+      <End Role="aeropuerto" EntitySet="aeropuerto" />
+      <End Role="vuelo" EntitySet="vuelo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vuelo_Avion" Association="airlineModel.Store.FK_Vuelo_Avion">
+      <End Role="avion" EntitySet="avion" />
+      <End Role="vuelo" EntitySet="vuelo" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="aerolinea">
+    <Key>
+      <PropertyRef Name="codigo" />
+    </Key>
+    <Property Name="codigo" Type="varchar" Nullable="false" MaxLength="8" />
+    <Property Name="descripcion" Type="varchar" Nullable="false" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="aeropuerto">
+    <Key>
+      <PropertyRef Name="codigo" />
+    </Key>
+    <Property Name="codigo" Type="varchar" Nullable="false" MaxLength="8" />
+    <Property Name="descripcion" Type="varchar" Nullable="false" MaxLength="45" />
+    <Property Name="ciudad" Type="varchar" Nullable="false" MaxLength="45" />
+    <Property Name="pais" Type="varchar" Nullable="false" MaxLength="45" />
+    <Property Name="direccion" Type="varchar" Nullable="false" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="avion">
+    <Key>
+      <PropertyRef Name="codigo" />
+    </Key>
+    <Property Name="codigo" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="varchar" Nullable="false" MaxLength="45" />
+    <Property Name="capacidad" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="clases">
+    <Key>
+      <PropertyRef Name="codigo" />
+    </Key>
+    <Property Name="codigo" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="configuracion">
+    <Key>
+      <PropertyRef Name="avion" />
+      <PropertyRef Name="clase" />
+    </Key>
+    <Property Name="avion" Type="int" Nullable="false" />
+    <Property Name="clase" Type="int" Nullable="false" />
+    <Property Name="capacidad" Type="int" />
+  </EntityType>
+  <EntityType Name="usuario">
+    <Key>
+      <PropertyRef Name="nusuario" />
+    </Key>
+    <Property Name="nusuario" Type="varchar" Nullable="false" MaxLength="16" />
+    <Property Name="clave" Type="varchar" MaxLength="45" />
+    <Property Name="nombre" Type="varchar" MaxLength="45" />
+    <Property Name="apellido" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="vuelo">
+    <Key>
+      <PropertyRef Name="codigo" />
+    </Key>
+    <Property Name="codigo" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="aerolinea" Type="varchar" Nullable="false" MaxLength="8" />
+    <Property Name="origen" Type="varchar" Nullable="false" MaxLength="8" />
+    <Property Name="destino" Type="varchar" Nullable="false" MaxLength="8" />
+    <Property Name="avion" Type="int" Nullable="false" />
+    <Property Name="salida" Type="datetime" Nullable="false" />
+    <Property Name="llegada" Type="datetime" Nullable="false" />
+    <Property Name="estado" Type="tinyint" />
+  </EntityType>
+  <Association Name="FK_Configuracion_Avion">
+    <End Role="avion" Type="airlineModel.Store.avion" Multiplicity="1" />
+    <End Role="configuracion" Type="airlineModel.Store.configuracion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="avion">
+        <PropertyRef Name="codigo" />
+      </Principal>
+      <Dependent Role="configuracion">
+        <PropertyRef Name="avion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Configuracion_Clase">
+    <End Role="clases" Type="airlineModel.Store.clases" Multiplicity="1" />
+    <End Role="configuracion" Type="airlineModel.Store.configuracion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="clases">
+        <PropertyRef Name="codigo" />
+      </Principal>
+      <Dependent Role="configuracion">
+        <PropertyRef Name="clase" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vuelo_Aerolinea">
+    <End Role="aerolinea" Type="airlineModel.Store.aerolinea" Multiplicity="1" />
+    <End Role="vuelo" Type="airlineModel.Store.vuelo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aerolinea">
+        <PropertyRef Name="codigo" />
+      </Principal>
+      <Dependent Role="vuelo">
+        <PropertyRef Name="aerolinea" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vuelo_AeropuertoDestino">
+    <End Role="aeropuerto" Type="airlineModel.Store.aeropuerto" Multiplicity="1" />
+    <End Role="vuelo" Type="airlineModel.Store.vuelo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aeropuerto">
+        <PropertyRef Name="codigo" />
+      </Principal>
+      <Dependent Role="vuelo">
+        <PropertyRef Name="origen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vuelo_AeropuertoOrigen">
+    <End Role="aeropuerto" Type="airlineModel.Store.aeropuerto" Multiplicity="1" />
+    <End Role="vuelo" Type="airlineModel.Store.vuelo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aeropuerto">
+        <PropertyRef Name="codigo" />
+      </Principal>
+      <Dependent Role="vuelo">
+        <PropertyRef Name="destino" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vuelo_Avion">
+    <End Role="avion" Type="airlineModel.Store.avion" Multiplicity="1" />
+    <End Role="vuelo" Type="airlineModel.Store.vuelo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="avion">
+        <PropertyRef Name="codigo" />
+      </Principal>
+      <Dependent Role="vuelo">
+        <PropertyRef Name="avion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="LISTVUELOSPORFECHAS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="airline">
+    <Parameter Name="FECHA" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_capacidad_vuelo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="airline">
+    <Parameter Name="cod_vuelo" Type="varchar" Mode="In" />
+  </Function>
+</Schema>

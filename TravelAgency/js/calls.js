@@ -3,20 +3,24 @@
         interval: 3000
     })
     $('.modal').modal('hide')
+    $('.msgm').modal('show')
     $('.btn').tooltip()
-    //$('input').tooltip()
+    $('td').tooltip()
+    $("#dialog").dialog()
 
     $("#datepickerPartida").datepicker({
         minDate: +2,
         maxDate: "+1M +10D",
         showOtherMonths: true,
-        selectOtherMonths: true
+        selectOtherMonths: true,
+        dateFormat: "mm/dd/yy"
     })
     $("#datepickerRetorno").datepicker({
         minDate: +3,
         maxDate: "+1M +10D",
         showOtherMonths: true,
-        selectOtherMonths: true
+        selectOtherMonths: true,
+        dateFormat: "mm/dd/yy"
     })
     $.datepicker.regional['es'] = {
         closeText: 'Cerrar',

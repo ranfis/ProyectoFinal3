@@ -83,6 +83,9 @@
     <None Include="Web References\localhost\aeropuerto.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
+    <None Include="Web References\localhost\avion.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
     <None Include="Web References\localhost\FlightService.disco" />
     <Content Include="img\logo.png" />
     <Content Include="Index.aspx" />
@@ -105,6 +108,7 @@
     <Content Include="js\calls.js" />
     <Content Include="js\functions.js" />
     <Content Include="Reservacion.aspx" />
+    <Content Include="Reservaciones.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -192,6 +196,13 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Reservaciones.aspx.cs">
+      <DependentUpon>Reservaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reservaciones.aspx.designer.cs">
+      <DependentUpon>Reservaciones.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>

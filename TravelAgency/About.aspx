@@ -2,5 +2,13 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-WE ARE
+<div class="hero-unit" style="text-align:center;">
+	<h3>Miembros del equipo</h3>
+	<p>
+		Juan Sepulveda (2010-1917)
+	</p>
+	<p>
+		Ranfis Sanchez (2010-2967)
+	</p>
+</div>
 </asp:Content>

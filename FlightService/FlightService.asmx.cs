@@ -16,7 +16,7 @@ namespace FlightService
     // [System.Web.Script.Services.ScriptService]
     public class FlightService : System.Web.Services.WebService
     {
-        AirlineEntities airline = new AirlineEntities();
+        airlineEntities airline = new airlineEntities();
         [WebMethod]
         public List<vuelo> buscarVuelos(String partida, String destino, String fecha)
         {
@@ -28,7 +28,8 @@ namespace FlightService
                 String des = destino.Substring(destino.IndexOf("(")).Replace("(", "").Replace(")", "");
 
                 DateTime date = Convert.ToDateTime(fecha);
-                var vuelos = airline.LISTVUELOSPORFECHAS3(date.ToString("yyyy-dd-MM"));
+                var vuelos = airline.LISTVUELOSPORFECHAS(date.ToString("yyyy-MM-dd"));
+
                 filtro = vuelos.ToList().FindAll(x => (x.origen.Equals(par) && x.destino.Equals(des)));
             }
             catch (Exception)
@@ -40,7 +41,7 @@ namespace FlightService
         [WebMethod]
         public List<vuelo> buscarVuelos2()
         {
-            return airline.vuelo.ToList();
+            return airline.vueloes.ToList();
         }
         [WebMethod]
         public List<aeropuerto> listaAeropuertos()
@@ -48,13 +49,19 @@ namespace FlightService
             List<aeropuerto> aeropuertos;
             try
             {
-                aeropuertos = airline.aeropuerto.ToList();
+                aeropuertos = airline.aeropuertoes.ToList();
             }
             catch (Exception)
             {
                 aeropuertos = null;
             }
             return aeropuertos;
+        }
+        [WebMethod]
+        public List<avion> capacidadVuelo(int vuelo)
+        {
+            var resultado =airline.sp_capacidad_vuelo2(vuelo.ToString());
+            return resultado.ToList();
         }
     }
 }

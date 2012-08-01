@@ -63,11 +63,12 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AirlineModel.Designer.cs">
+    <Compile Include="Airline.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>AirlineModel.edmx</DependentUpon>
+      <DependentUpon>Airline.edmx</DependentUpon>
     </Compile>
+    <Compile Include="CapacidadVuelo.cs" />
     <Compile Include="FlightService.asmx.cs">
       <DependentUpon>FlightService.asmx</DependentUpon>
       <SubType>Component</SubType>
@@ -78,9 +79,9 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="AirlineModel.edmx">
+    <EntityDeploy Include="Airline.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>AirlineModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>Airline.Designer.cs</LastGenOutput>
     </EntityDeploy>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

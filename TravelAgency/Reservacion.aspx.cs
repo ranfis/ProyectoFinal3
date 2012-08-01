@@ -12,8 +12,15 @@ namespace TravelAgency
     {
         Models.TravelAgencyEntities agencia = new Models.TravelAgencyEntities();
         localhost.FlightService servicio = new localhost.FlightService();
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            if (Session["userLoged"] == null)
+            {
+                Response.Redirect("Index.aspx");
+            }
             String partida, destino, fecha, fecha2;
             try
             {
@@ -36,6 +43,24 @@ namespace TravelAgency
 
             generarTablaVuelos(Table1, partida, destino, fecha);
             generarTablaVuelos(Table2, destino, partida, fecha2);
+            TableRow trBoton = new TableRow();
+            TableCell tdBoton = new TableCell();
+            HtmlGenericControl boton = new HtmlGenericControl("button");
+            Label span = new Label();
+            span.CssClass = "con dark";
+            boton.Controls.Add(span);
+            boton.Attributes["class"] = "btn btn-large";
+            boton.Attributes["title"] = "Hacer reservacion(es)";
+            boton.Attributes["ID"] = "btnReservar";
+            boton.Attributes["onclick"] = "fpreservacion.click()";
+            boton.Attributes["runat"] = "server";
+
+            span.Text = "Reservar";
+            tdBoton.Controls.Add(boton);
+            tdBoton.CssClass = "vuelos right";
+            tdBoton.ColumnSpan = 8;
+            trBoton.Cells.Add(tdBoton);
+            boton2.Controls.Add(trBoton);
         }
 
         void generarTablaVuelos(Table table, String partida, String destino, String fecha)
@@ -61,9 +86,10 @@ namespace TravelAgency
 
                     TableCell tdRadio = new TableCell();
                     RadioButton radio = new RadioButton();
-                    radio.Attributes["value"] = vuelo.codigo;
-                    radio.GroupName = "reservado";
-                    radio.Attributes["onclick"] = "fp3.value=" + vuelo.codigo;
+                    radio.Attributes["value"] = vuelo.codigo.ToString();
+                    radio.GroupName = "reservado" + vuelo.origen;
+
+
                     tdRadio.Controls.Add(radio);
                     tdRadio.CssClass = "vuelos";
 
@@ -98,7 +124,7 @@ namespace TravelAgency
 
                     TableCell tdTiempo = new TableCell();
                     Label lbl5 = new Label();
-                    lbl5.Text = "14h 34m";
+                    lbl5.Text = (vuelo.llegada - vuelo.salida).ToString();
                     lbl5.CssClass = "con";
                     tdTiempo.Controls.Add(lbl5);
                     tdTiempo.CssClass = "vuelos";
@@ -111,18 +137,33 @@ namespace TravelAgency
                     tdAerolinea.Controls.Add(lbl6);
                     tdAerolinea.CssClass = "vuelos";
 
+
+
                     TableCell tdClase = new TableCell();
-                    tdClase.Text = "<div class='btn-group' data-toggle='buttons-radio'>" +
-                                "<button clientidmode='Static' class='btn' type='button' title='Seleccionar'>" +
-                                    "<span class='con dark'>Economica</span>" +
-                                "</button>" +
-                                "<button clientidmode='Static' class='btn' type='button' title='Seleccionar'>" +
-                                    "<span class='con dark'>Fumadores</span>" +
-                                "</button>" +
-                                "<button clientidmode='Static' class='btn' type='button' title='Seleccionar'>" +
-                                    "<span class='con dark'>VIP</span>" +
-                                "</button>" +
-                            "</div>";
+                    var capacidad = servicio.capacidadVuelo(vuelo.codigo).ToList();
+                    Panel div = new Panel();
+                    div.CssClass = "btn-group";
+                    div.Attributes["data-toggle"] = "buttons-radio";
+                    int cap = 0;
+                    foreach (var c in capacidad)
+                    {
+                        cap += c.capacidad;
+                        HtmlGenericControl btn = new HtmlGenericControl("button");
+                        Label lbl = new Label();
+                        lbl.CssClass = "con dark";
+                        btn.Controls.Add(lbl);
+                        btn.Attributes["class"] = "btn";
+                        btn.Attributes["title"] = "Seleccionar";
+                        btn.Attributes["ID"] = "radioc";
+                        btn.Attributes["type"] = "button";
+                        btn.Attributes["runat"] = "server";
+                        btn.Attributes["name"] = "miradio";
+                        btn.Attributes["onclick"] = "fpclase.value="+c.codigo.ToString();
+                        lbl.Text = c.descripcion;
+                        div.Controls.Add(btn);
+                    }
+                    tdClase.Controls.Add(div);
+
                     tdClase.CssClass = "vuelos";
 
                     tr.Cells.Add(tdRadio);
@@ -135,39 +176,27 @@ namespace TravelAgency
                     tr.Cells.Add(tdClase);
                     tr.BorderWidth = 2;
                     var ocupados = agencia.reservacions.ToList().FindAll(x => (x.vuelo.Equals(vuelo.codigo)));
-                    if (ocupados.Count > 0)
+                    //ocupados.Count
+                    if (90 >= cap)
                     {
                         System.Drawing.Color yy = System.Drawing.Color.FromArgb(255, 255, 0);
                         tr.BorderColor = yy;
+                        radio.Attributes["onclick"] = "fpvuelo.value=" + vuelo.codigo + ";fplleno.value=0;radioc.class='btn'";
+                        tdRadio.ToolTip = "El avion esta lleno";
                     }
                     else
                     {
                         System.Drawing.Color gg = System.Drawing.Color.FromArgb(00, 255, 00);
                         tr.BorderColor = gg;
+                        tdRadio.ToolTip = "Vuelo disponible";
+                        radio.Attributes["onclick"] = "fpvuelo.value=" + vuelo.codigo + ";fplleno.value=1;radioc.class='btn'";
                     }
 
                     table.Rows.Add(tr);
 
                 }
 
-                TableRow trBoton = new TableRow();
-                TableCell tdBoton = new TableCell();
-                HtmlGenericControl boton = new HtmlGenericControl("button");
-                Label span = new Label();
-                span.CssClass = "con dark";
-                boton.Controls.Add(span);
-                boton.Attributes["class"] = "btn";
-                boton.Attributes["title"] = "Hacer reservacion(es)";
-                boton.Attributes["ID"] = "btnReservar";
-                boton.Attributes["onclick"] = "fp2.click()";
-                boton.Attributes["runat"] = "server";
 
-                span.Text = "Reservar";
-                tdBoton.Controls.Add(boton);
-                tdBoton.CssClass = "vuelos right";
-                tdBoton.ColumnSpan = 8;
-                trBoton.Cells.Add(tdBoton);
-                table.Rows.Add(trBoton);
             }
             catch (Exception)
             {
@@ -189,18 +218,43 @@ namespace TravelAgency
         {
             String cliente = Session["userLoged"].ToString();
             Models.reservacion r = new Models.reservacion();
-            r.codigo = MD5Generator.generarMD5(DateTime.Now.Millisecond + fp3.Value).Substring(0, 8);
+            r.codigo = MD5Generator.generarMD5(DateTime.Now.Millisecond + fpvuelo.Value).Substring(0, 8);
             r.agencia = "TRV001";
-            r.vuelo = fp3.Value;
+            r.vuelo = fpvuelo.Value;
             r.precio = 2000;
-            r.clase = "1";
-            r.estado = 1;
+            r.clase = fpclase.Value;
+            if (fplleno.Value.Equals("1"))
+            {
+                r.estado = 1;
+                Label5.Text = "legal";
+            }
+            else
+            {
+                r.estado = 0;
+                Label5.Text = "lleno";
+
+            }
             r.cliente = cliente;
             r.asiento = "A1";
-
             agencia.reservacions.AddObject(r);
             agencia.SaveChanges();
         }
     }
 
 }
+
+/*Panel msg1 = new Panel();
+                Panel msg2 = new Panel();
+                Panel msg3 = new Panel();
+                msg1.CssClass = "modal";
+                msg2.CssClass = "modal-header";
+                HtmlGenericControl btnc = new HtmlGenericControl("button");
+                btnc.Attributes["class"] = "close";
+                btnc.Attributes["data-dismiss"] = "modal";
+                msg2.Controls.Add(btnc);
+                msg3.CssClass = "modal-body";
+                Label msg = new Label();
+                msg.Text = "KLK1";
+                msg3.Controls.Add(msg);
+                Page.Controls.Add(msg1);
+*/

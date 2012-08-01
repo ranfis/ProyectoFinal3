@@ -19,7 +19,7 @@
         }
     </script>
 </head>
-<% if (Session["userLoged"] == "")
+<% if (Session["userLoged"] == null)
    {
        Response.Write("<body onload='abrirLogin();'>");
    }
@@ -46,12 +46,12 @@
                         <form action='' method='post' accept-charset='UTF-8'>
                         <span class="con dark">Usuario:</span>
                         <br />
-                        <asp:textbox clientidmode="Static" runat="server" id='txtUser' style='margin-bottom: 15px;'
+                        <asp:textbox clientidmode="Static" runat="server" id='txtUser' Text="ranfis" style='margin-bottom: 15px;'
                             type='text' placeholder='Nombre de usuario' name='txtUser'></asp:textbox>
                         <br />
                         <span class="con dark">Contrase&ntilde;a:</span>
                         <br />
-                        <asp:textbox clientidmode="Static" runat="server" id='txtPass' style='margin-bottom: 15px;'
+                        <asp:textbox clientidmode="Static" runat="server" id='txtPass' Text="rs19132008" style='margin-bottom: 15px;'
                             type='password' placeholder='Contraseña' name='txtPass'></asp:textbox>
                         <br />
                         </form>
@@ -75,60 +75,36 @@
 </div>
 <div class='cssmenu'>
     <ul class="menu">
-        <li><a href="Index.aspx"><span class="con">Inicio</span></a></li>
-        <li class='has-sub '><a href='#'><span class="con">Reservaciones</span></a>
+        <li><a href="/"><span class="con">Inicio</span></a></li>
+        <li class='has-sub '><a href=''><span class="con">Reservaciones</span></a>
             <ul>
-                <li><a href="Default.aspx"><span class="con">Hacer reservacion</span></a></li>
-                <li><a href="Reservacion.aspx"><span class="con">Mis reservaciones</span></a></li>
+                <li><a href="Index.aspx"><span class="con">Hacer reservacion</span></a></li>
+                <li><a href="Reservaciones.aspx"><span class="con">Mis reservaciones</span></a></li>
             </ul>
         </li>
-        <li><a href="About.aspx"><span class="con">Acerca de nosotros</span></a></li>
-        <li class='has-sub '><a href='#'><span class="con">Mi Cuenta</span></a>
+        <li class='has-sub '><a href=''><span class="con">Mi Cuenta</span></a>
             <ul>
-                <% //Session.Clear();
+                <%
                     if (Session["userLoged"] == null || Session["userLoged"] == "")
                     {
-                        Response.Write("<li><a href='#' runat='server' onclick='abrirLogin();' class='usuario'><span class='con' >Ingresar</span></a></li>");
+                        Response.Write("<li><a href='#Login' runat='server' onclick='abrirLogin();' ><span class='con' >Ingresar</span></a></li>");
+                        Response.Write("<li><a href='#Registro' runat='server' onclick='alert()' ><span class='con' >Registrarse</span></a></li>");
                     }
                     else
                     {
-                        Response.Write("<li><a href='#' runat='server' onclick='alert()' class='usuario'><span class='con' >Mi Cuenta</span></a></li>");
-                        Response.Write("<li><a href='#' onclick='fp5.click();alert();' class='usuario'><span class='con' >Cerrrar Sesion</span></a></li>");
-                        
+                        Response.Write("<li><a href='#Perfil' runat='server' onclick='alert()' class='usuario'><span class='con' >Mi Perfil</span></a></li>");
+                        Response.Write("<li><a href='#LogOut' onclick='fp5.click();' class='usuario'><span class='con' >Cerrrar Sesion</span></a></li>");
+
                     } %>
             </ul>
         </li>
+        <li><a href="About.aspx"><span class="con">Acerca de nosotros</span></a></li>
     </ul>
 </div>
 <div class="container-fluid" id="content">
     <div class="row-fluid">
         <div class="span2" id="sidebar">
-            <ul class="the-icons">
-                <li><i class="icon-glass"></i><a href="#">icon-glass</li>
-                <li><i class="icon-music"></i><a href="#">icon-music</li>
-                <li><i class="icon-search"></i><a href="#">icon-search</li>
-                <li><i class="icon-envelope"></i><a href="#">icon-envelope</li>
-                <li><i class="icon-heart"></i><a href="#">icon-heart</li>
-                <li><i class="icon-star"></i><a href="#">icon-star</li>
-                <li><i class="icon-star-empty"></i><a href="#">icon-star-empty</li>
-                <li><i class="icon-user"></i><a href="#">icon-user</li>
-                <li><i class="icon-film"></i><a href="#">icon-film</li>
-                <li><i class="icon-home"></i><a href="#">icon-home</li>
-                <li><i class="icon-file"></i><a href="#">icon-file</li>
-                <li><i class="icon-time"></i><a href="#">icon-time</li>
-                <li><i class="icon-road"></i><a href="#">icon-road</li>
-                <li><i class="icon-download-alt"></i><a href="#">icon-download-alt</li>
-                <li><i class="icon-download"></i><a href="#">icon-download</li>
-                <li><i class="icon-upload"></i><a href="#">icon-upload</li>
-                <li><i class="icon-inbox"></i><a href="#">icon-inbox</li>
-                <li><i class="icon-play-circle"></i><a href="#">icon-play-circle</li>
-                <li><i class="icon-repeat"></i><a href="#">icon-repeat</li>
-                <li><i class="icon-refresh"></i><a href="#">icon-refresh</li>
-                <li><i class="icon-list-alt"></i><a href="#">icon-list-alt</li>
-                <li><i class="icon-lock"></i><a href="#">icon-lock</li>
-                <li><i class="icon-flag"></i><a href="#">icon-flag</li>
-                <li><i class="icon-headphones"></i><a href="#">icon-headphones</a></li>
-            </ul>
+            
         </div>
         <div class="span10" id="main">
             <% Response.Write(err); %>
@@ -137,10 +113,8 @@
     </div>
 </div>
 <footer> &copy; 2012 JRS Software. All Rights Reserved. </footer>
-
-<asp:Button runat="server" Text="Button" type="button" 
-clientidmode="Static" onclick="logOut" Style="display:none;" id="fp5"></asp:Button>
-
+<asp:button runat="server" text="Button" type="button" clientidmode="Static" onclick="logOut"
+    style="display: none;" id="fp5"></asp:button>
 </form>
 <!-- JQuery -->
 <link type="text/css" href="../../jquery/css/jquery-ui-1.8.21.custom.css" rel="stylesheet" />
