@@ -1,0 +1,34 @@
+﻿@model AirlineApp.Models.usuario
+
+@{
+    ViewBag.Title = "Eliminar Usuario";
+}
+
+<h2>Eliminar Usuario</h2>
+
+<h3>¿Esta seguro de eliminar este registro ?</h3>
+<fieldset>
+    <legend>Usuario</legend>
+
+    <div class="display-label"><b>Usuario</b></div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.nusuario)
+    </div>
+
+    <div class="display-label"><b>Nombre</b></div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.nombre)
+    </div>
+
+    <div class="display-label"><b>Apellido</b></div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.apellido)
+    </div>
+</fieldset>
+
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Eliminar" /> |
+        @Html.ActionLink("Atras", "Index")
+    </p>
+}

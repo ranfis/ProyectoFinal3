@@ -2,6 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+<h1><span class="con dark super" >Reservar un vuelo</span></h1>
 <div class="bluePanel mid">
 
         <table class="pnlReserv">

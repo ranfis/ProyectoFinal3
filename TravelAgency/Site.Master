@@ -19,112 +19,108 @@
         }
     </script>
 </head>
-<% if (Session["userLoged"] == null)
-   {
-       Response.Write("<body onload='abrirLogin();'>");
-   }
-   else
-   {
-       Response.Write("<body>");
-   }
-%>
-<form runat="server">
-<% Response.Write(err); %>
-<div class="modal hide" id="myModal">
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">
-            ×
-        </button>
-        <h3>
-            Iniciar Sesion</h3>
-    </div>
-    <div class="modal-body">
-        <table>
-            <tr>
-                <td>
-                    <div class='login'>
-                        <form action='' method='post' accept-charset='UTF-8'>
-                        <span class="con dark">Usuario:</span>
-                        <br />
-                        <asp:textbox clientidmode="Static" runat="server" id='txtUser' Text="ranfis" style='margin-bottom: 15px;'
-                            type='text' placeholder='Nombre de usuario' name='txtUser'></asp:textbox>
-                        <br />
-                        <span class="con dark">Contrase&ntilde;a:</span>
-                        <br />
-                        <asp:textbox clientidmode="Static" runat="server" id='txtPass' Text="rs19132008" style='margin-bottom: 15px;'
-                            type='password' placeholder='Contraseña' name='txtPass'></asp:textbox>
-                        <br />
-                        </form>
-                    </div>
-                </td>
-                <td>
-                    <img src="../../img/logo.png" height="64px" />
-                </td>
-            </tr>
-        </table>
-    </div>
-    <div class="modal-footer">
-        <button clientidmode="Static" id="btnLogin" runat="server" class='btn btn-success'
-            title="Ingresar" onserverclick="logIn" type="submit">
-            <span class="con">Ingresar</span>
-        </button>
-        <a href="#" class="btn" data-dismiss="modal"><span class="con dark">Cerrar</span>
-            <br />
-        </a>
-    </div>
-</div>
-<div class='cssmenu'>
-    <ul class="menu">
-        <li><a href="/"><span class="con">Inicio</span></a></li>
-        <li class='has-sub '><a href=''><span class="con">Reservaciones</span></a>
-            <ul>
-                <li><a href="Index.aspx"><span class="con">Hacer reservacion</span></a></li>
-                <li><a href="Reservaciones.aspx"><span class="con">Mis reservaciones</span></a></li>
-            </ul>
-        </li>
-        <li class='has-sub '><a href=''><span class="con">Mi Cuenta</span></a>
-            <ul>
-                <%
-                    if (Session["userLoged"] == null || Session["userLoged"] == "")
-                    {
-                        Response.Write("<li><a href='#Login' runat='server' onclick='abrirLogin();' ><span class='con' >Ingresar</span></a></li>");
-                        Response.Write("<li><a href='#Registro' runat='server' onclick='alert()' ><span class='con' >Registrarse</span></a></li>");
-                    }
-                    else
-                    {
-                        Response.Write("<li><a href='#Perfil' runat='server' onclick='alert()' class='usuario'><span class='con' >Mi Perfil</span></a></li>");
-                        Response.Write("<li><a href='#LogOut' onclick='fp5.click();' class='usuario'><span class='con' >Cerrrar Sesion</span></a></li>");
 
-                    } %>
-            </ul>
-        </li>
-        <li><a href="About.aspx"><span class="con">Acerca de nosotros</span></a></li>
-    </ul>
-</div>
-<div class="container-fluid" id="content">
-    <div class="row-fluid">
-        <div class="span2" id="sidebar">
-            
+<% if (Request.QueryString["Login"] == "s" && Session["userLoged"] == null)
+   {
+       bodyc.Attributes["onload"] = "abrirLogin()";
+   } %>
+<body id="bodyc" runat="server">
+    <form runat="server">
+    <% Response.Write(err); %>
+    <div class="modal hide" id="myModal">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">
+                ×
+            </button>
+            <h3>
+                Iniciar Sesion</h3>
         </div>
-        <div class="span10" id="main">
-            <% Response.Write(err); %>
-            <asp:contentplaceholder id="MainContent" runat="server" />
+        <div class="modal-body">
+            <table>
+                <tr>
+                    <td>
+                        <div class='login'>
+                            <form action='' method='post' accept-charset='UTF-8'>
+                            <span class="con dark">Usuario:</span>
+                            <br />
+                            <asp:TextBox ClientIDMode="Static" runat="server" ID='txtUser' Style='margin-bottom: 15px;' 
+                                type='text' placeholder='Nombre de usuario' name='txtUser'></asp:TextBox>
+                            <br />
+                            <span class="con dark">Contrase&ntilde;a:</span>
+                            <br />
+                            <asp:TextBox ClientIDMode="Static" runat="server" ID='txtPass' 
+                                Style='margin-bottom: 15px;' type='password' placeholder='Contraseña' name='txtPass'></asp:TextBox>
+                            <br />
+                            </form>
+                        </div>
+                    </td>
+                    <td>
+                        <img src="../../img/logo.png" height="64px" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="modal-footer">
+            <button clientidmode="Static" id="btnLogin" runat="server" class='btn btn-success'
+                title="Ingresar" onserverclick="logIn" type="submit">
+                <span class="con">Ingresar</span>
+            </button>
+            <button clientidmode="Static" id="Button1" runat="server" class='btn btn-info' title="Ingresar"
+                onclick="location.href='/Registro.aspx'" type="button">
+                <span class="con">Registrase</span>
+            </button>
         </div>
     </div>
-</div>
-<footer> &copy; 2012 JRS Software. All Rights Reserved. </footer>
-<asp:button runat="server" text="Button" type="button" clientidmode="Static" onclick="logOut"
-    style="display: none;" id="fp5"></asp:button>
-</form>
-<!-- JQuery -->
-<link type="text/css" href="../../jquery/css/jquery-ui-1.8.21.custom.css" rel="stylesheet" />
-<script type="text/javascript" src="../../jquery/js/jquery-1.7.2.min.js"></script>
-<script type="text/javascript" src="../../jquery/js/jquery-ui-1.8.21.custom.min.js"></script>
-<!-- JQuery -->
-<!-- Bootstrap -->
-<script src="../../bootstrap/js/bootstrap.js"></script>
-<!-- Bootstrap -->
-<script type="text/javascript" src="../../js/calls.js"></script>
-<script type="text/javascript" src="../../js/functions.js"></script>
+    <div class='cssmenu'>
+        <ul class="menu">
+            <li><a href="/"><span class="con">Inicio</span></a></li>
+            <li class='has-sub '><a href="#"><span class="con">Reservaciones</span></a>
+                <ul>
+                    <li><a href="Index.aspx"><span class="con">Hacer reservacion</span></a></li>
+                    <li><a href="Reservaciones.aspx"><span class="con">Mis reservaciones</span></a></li>
+                </ul>
+            </li>
+            <li class='has-sub '><a href='#'><span class="con">Mi Cuenta</span></a>
+                <ul>
+                    <%
+                        if (Session["userLoged"] == null || Session["userLoged"] == "")
+                        {
+                            Response.Write("<li><a href='#Login' runat='server' onclick='abrirLogin();' ><span class='con' >Ingresar</span></a></li>");
+                            Response.Write("<li><a href='Registro.aspx' runat='server' ><span class='con' >Registrarse</span></a></li>");
+                        }
+                        else
+                        {
+                            //Response.Write("<li><a href='#Perfil' runat='server' onclick='alert()' class='usuario'><span class='con' >Mi Perfil</span></a></li>");
+                            Response.Write("<li><a href='#LogOut' onclick='fp5.click();' class='usuario'><span class='con' >Cerrrar Sesion</span></a></li>");
+
+                        } %>
+                </ul>
+            </li>
+            <li><a href="About.aspx"><span class="con">Acerca de nosotros</span></a></li>
+        </ul>
+    </div>
+    <div id="main">
+        <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+    </div>
+    <footer> &copy; 2012 JRS Software. All Rights Reserved. </footer>
+    <asp:Button runat="server" Text="Button" type="button" ClientIDMode="Static" OnClick="logOut"
+        Style="display: none;" ID="fp5"></asp:Button>
+        
+    </form>
+    <!-- JQuery -->
+    <link type="text/css" href="../../jquery/css/jquery-ui-1.8.21.custom.css" rel="stylesheet" />
+    <script type="text/javascript" src="../../jquery/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="../../jquery/js/jquery-ui-1.8.21.custom.min.js"></script>
+    <!-- JQuery -->
+    <!-- Bootstrap -->
+    <script src="../../bootstrap/js/bootstrap.js"></script>
+    <!-- Bootstrap -->
+    <script type="text/javascript" src="../../js/calls.js"></script>
+    <script type="text/javascript" src="../../js/functions.js"></script>
+    <button id="fpmodall" type="button" runat="server" style="display: none;" clientidmode="Static"
+        onclick="abrirLogin();">
+    </button>
+    
+    
 </body>
 </html>

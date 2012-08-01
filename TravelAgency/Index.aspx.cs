@@ -13,13 +13,9 @@ namespace TravelAgency
         TravelAgency.Models.TravelAgencyEntities agency = new TravelAgency.Models.TravelAgencyEntities();
         protected void Page_Load(object sender, EventArgs e)
         {
-            txtDestino.Text = "Mexico (MEX)";
-            txtPartida.Text = "Santo Domingo (SDQ)";
-            datepickerPartida.Text = "08/05/2012";
-            datepickerRetorno.Text = "08/15/2012";
             if (Session["userLoged"] == null)
             {
-                Response.Redirect("Default.aspx");
+                Response.Redirect("Default.aspx?Login=s");
             }
             Validador.iniciar();
             txtPartida.Attributes["data-source"] = listaAeropuertos();

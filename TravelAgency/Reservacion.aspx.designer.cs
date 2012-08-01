@@ -112,21 +112,39 @@ namespace TravelAgency {
         protected global::System.Web.UI.HtmlControls.HtmlInputText fpclase;
         
         /// <summary>
-        /// Control fpmodal1.
+        /// Control fpvuelo2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton fpmodal1;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText fpvuelo2;
         
         /// <summary>
-        /// Control Label5.
+        /// Control fplleno2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label5;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText fplleno2;
+        
+        /// <summary>
+        /// Control fpclase2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText fpclase2;
+        
+        /// <summary>
+        /// Control inalert.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton inalert;
     }
 }

@@ -1,0 +1,44 @@
+﻿@model AirlineApp.Models.aeropuerto
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Eliminar Aeropuerto</h2>
+
+<h3>¿Esta seguro que desea eliminar este aeropuerto?</h3>
+<fieldset>
+    <legend>Aeropuerto</legend>
+
+    <div class="display-label"><b>Codigo</b></div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.descripcion)
+    </div>
+    <div class="display-label"><b>Nombre</b></div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.descripcion)
+    </div>
+
+
+    <div class="display-label"><b>Pais</b></div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.pais)
+    </div>
+
+    <div class="display-label"><b>Ciudad</b></div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ciudad)
+    </div>
+
+    <div class="display-label"><b>Direccion</b></div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.direccion)
+    </div>
+</fieldset>
+
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Eliminar" /> |
+        @Html.ActionLink("Atras", "Index")
+    </p>
+}

@@ -1,0 +1,40 @@
+﻿@model IEnumerable<AirlineApp.Models.aerolinea>
+@{
+    ViewBag.Title = "Administar Aerolineas";
+}
+<h2>
+    Administar Aerolineas</h2>
+<p>
+   <a href="@Url.Action("Create")"><img src="../../Content/Images/add.png" style = "width:24; height:24 "/></a>
+</p>
+<table>
+    <tr>
+        <th>
+            Codigo
+        </th>
+        <th>
+            Nombre
+        </th>
+        <th>
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.codigo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.descripcion)
+            </td>
+            <td>
+               <a href='@Url.Action("/Edit/" + item.codigo + "")'>
+                    <img src="../../Content/Images/edit.png" style="width: 24; height: 24" /></a>
+                | <a href="@Url.Action("/Details/" + item.codigo + "")">
+                    <img src="../../Content/Images/details.png" style="width: 24; height: 24" /></a>
+                | <a href="@Url.Action("/Delete/" + item.codigo + "")">
+                    <img src="../../Content/Images/trash.png" style="width: 24; height: 24" /></a>
+            </td>
+        </tr>
+    }
+</table>

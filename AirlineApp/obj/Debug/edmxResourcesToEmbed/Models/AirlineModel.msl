@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AirlineModelStoreContainer" CdmEntityContainer="airlineEntities">
+    <EntitySetMapping Name="aerolineas">
+      <EntityTypeMapping TypeName="AirlineModel.aerolinea">
+        <MappingFragment StoreEntitySet="aerolinea">
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aeropuertoes">
+      <EntityTypeMapping TypeName="AirlineModel.aeropuerto">
+        <MappingFragment StoreEntitySet="aeropuerto">
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="ciudad" ColumnName="ciudad" />
+          <ScalarProperty Name="pais" ColumnName="pais" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="avions">
+      <EntityTypeMapping TypeName="AirlineModel.avion">
+        <MappingFragment StoreEntitySet="avion">
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="capacidad" ColumnName="capacidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="clases">
+      <EntityTypeMapping TypeName="AirlineModel.clas">
+        <MappingFragment StoreEntitySet="clases">
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="configuracions">
+      <EntityTypeMapping TypeName="AirlineModel.configuracion">
+        <MappingFragment StoreEntitySet="configuracion">
+          <ScalarProperty Name="avion" ColumnName="avion" />
+          <ScalarProperty Name="clase" ColumnName="clase" />
+          <ScalarProperty Name="capacidad" ColumnName="capacidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usuarios">
+      <EntityTypeMapping TypeName="AirlineModel.usuario">
+        <MappingFragment StoreEntitySet="usuario">
+          <ScalarProperty Name="nusuario" ColumnName="nusuario" />
+          <ScalarProperty Name="clave" ColumnName="clave" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="apellido" ColumnName="apellido" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vueloes">
+      <EntityTypeMapping TypeName="AirlineModel.vuelo">
+        <MappingFragment StoreEntitySet="vuelo">
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="aerolinea" ColumnName="aerolinea" />
+          <ScalarProperty Name="origen" ColumnName="origen" />
+          <ScalarProperty Name="destino" ColumnName="destino" />
+          <ScalarProperty Name="avion" ColumnName="avion" />
+          <ScalarProperty Name="salida" ColumnName="salida" />
+          <ScalarProperty Name="llegada" ColumnName="llegada" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

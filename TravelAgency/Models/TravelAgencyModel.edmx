@@ -61,6 +61,7 @@
           <Property Name="rol" Type="varchar" Nullable="false" MaxLength="8" />
           <Property Name="nombre" Type="varchar" Nullable="false" MaxLength="45" />
           <Property Name="apellido" Type="varchar" Nullable="false" MaxLength="45" />
+          <Property Name="correo" Type="varchar" Nullable="false" MaxLength="45" />
         </EntityType>
         <Association Name="FK_Reservacion_Agencia">
           <End Role="agencia" Type="TravelAgencyModel.Store.agencia" Multiplicity="1" />
@@ -164,6 +165,7 @@
           <Property Name="apellido" Type="String" Nullable="false" MaxLength="45" Unicode="false" FixedLength="false" />
           <NavigationProperty Name="reservacions" Relationship="TravelAgencyModel.FK_Reservacion_Cliente" FromRole="usuario" ToRole="reservacion" />
           <NavigationProperty Name="rol1" Relationship="TravelAgencyModel.FK_Usuario_Rol" FromRole="usuario" ToRole="rol" />
+          <Property Type="String" Name="correo" Nullable="false" />
         </EntityType>
         <Association Name="FK_Reservacion_Agencia">
           <End Role="agencia" Type="TravelAgencyModel.agencia" Multiplicity="1" />
@@ -228,7 +230,8 @@
             <ScalarProperty Name="descripcion" ColumnName="descripcion" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="usuarios"><EntityTypeMapping TypeName="TravelAgencyModel.usuario"><MappingFragment StoreEntitySet="usuario">
-            <ScalarProperty Name="nusuario" ColumnName="nusuario" />
+            <ScalarProperty Name="correo" ColumnName="correo" />
+                <ScalarProperty Name="nusuario" ColumnName="nusuario" />
             <ScalarProperty Name="clave" ColumnName="clave" />
             <ScalarProperty Name="rol" ColumnName="rol" />
             <ScalarProperty Name="nombre" ColumnName="nombre" />

@@ -1,0 +1,36 @@
+﻿table {
+    border-collapse: collapse;
+    margin: 20px;
+    width: 90%;
+}
+
+table, td , th  {
+    border: 1px silver solid;
+}
+table th
+{
+	background:#4EBDF1;
+}
+table td, th {
+    padding: 3px 6px;
+
+}
+table td {
+    text-align: left;
+    vertical-align: top;
+}
+table tr:HOVER {
+	background: #BCEBF1;
+}
+table .hover:HOVER{
+	background: white;
+}
+table .two
+{
+	background: #D6D6D6;
+}
+table .descripcion
+{
+	max-width: 580px;
+}
+

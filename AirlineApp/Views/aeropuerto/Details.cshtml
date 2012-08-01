@@ -1,0 +1,41 @@
+﻿@model AirlineApp.Models.aeropuerto
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalles Aeropuetos</h2>
+
+<fieldset>
+    <legend>Aeropuerto</legend>
+
+    <div class="display-label"><b>Codigo</b></div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.descripcion)
+    </div>
+    <div class="display-label"><b>Nombre</b></div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.descripcion)
+    </div>
+
+
+    <div class="display-label"><b>Pais</b></div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.pais)
+    </div>
+
+    <div class="display-label"><b>Ciudad</b></div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ciudad)
+    </div>
+
+    <div class="display-label"><b>Direccion</b></div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.direccion)
+    </div>
+</fieldset>
+<p>
+ <a href='@Url.Action("/Edit/" + Model.codigo + "")'>
+                    <img src="../../Content/Images/edit.png" style="width: 24; height: 24" /></a>
+   <br> <a href='@Url.Action("index")'><img src="../../Content/Images/back.png" style = "width:24; height:24 "/></a>
+</p>

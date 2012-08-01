@@ -15,6 +15,12 @@ namespace TravelAgency
         protected void Page_Load(object sender, EventArgs e)
         {
             
+            if (!Page.IsPostBack)
+            {
+                Temporizador temporizador = new Temporizador();
+                temporizador.Init();
+            }
+
         }
 
         public static String getErr()
@@ -34,7 +40,7 @@ namespace TravelAgency
             string clave = MD5Generator.generarMD5(MD5Generator.generarMD5(txtPass.Text));
             try
             {
-                TravelAgency.Models.usuario user = agency.usuarios.ToList().Find(c => c.nusuario.Equals(txtUser.Text) && c.clave.Equals(clave));
+                TravelAgency.Models.usuario user = agency.usuarios.ToList().Find(c => c.nusuario.Equals(txtUser.Text.ToLower()) && c.clave.Equals(clave));
                 if (user != null)
                 {
                     Session["userLoged"] = user.nusuario;
@@ -58,9 +64,6 @@ namespace TravelAgency
             }
         }
 
-        protected void Unnamed1_Click(object sender, EventArgs e)
-        {
-
-        }
+        public static bool logeado = false;
     }
 }

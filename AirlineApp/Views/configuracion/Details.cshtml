@@ -1,0 +1,20 @@
+﻿@model AirlineApp.Models.configuracion
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>configuracion</legend>
+
+    <div class="display-label">capacidad</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.capacidad)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

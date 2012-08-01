@@ -10,6 +10,7 @@ body {
 	border-radius: 16px;
 	
 }
+
 #content {
 	border-right: 1px solid black;
 	border-left: 1px solid black;
@@ -18,6 +19,7 @@ body {
 #main {
 	padding: 8px;
 	padding-top:16px;
+	min-height:500px;
 }
 #sidebar {
 	border-right: 1px solid black;
@@ -83,6 +85,7 @@ table.reserv {
 table.vuelos
 {
     width:100%;
+    
     
 }
 td.vuelos,th.vuelos
@@ -349,3 +352,7 @@ input.error:hover {
 	text-decoration: none;
 }
 /* Tables */
+span.super
+{
+ font: bold 24px Helvetica, Arial, sans-serif;  
+}

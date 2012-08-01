@@ -1,0 +1,31 @@
+﻿@model AirlineApp.Models.usuario
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalles Usuario</h2>
+
+<fieldset>
+    <legend>Usuario</legend>
+
+    <div class="display-label"><b>Usuario</b></div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.nusuario)
+    </div>
+
+    <div class="display-label"><b>Nombre</b></div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.nombre)
+    </div>
+
+    <div class="display-label"><b>Apellido</b></div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.apellido)
+    </div>
+</fieldset>
+
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id=Model.nusuario }) |
+    @Html.ActionLink("Atras", "Index")
+</p>

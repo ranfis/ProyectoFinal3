@@ -3,7 +3,9 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+<h1><span class="con dark super" >Mis Reservaciones</span></h1>
     <div class="bluePanel full">
         <asp:label runat="server" text="" id="Label1" cssclass="con"></asp:label>
         <asp:table id="Table1" runat="server" cssclass="vuelos">

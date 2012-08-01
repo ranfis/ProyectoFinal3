@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/css3-buttons.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/Style.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/table.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/jquery-1.7.2.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/modernizr-1.7.min.js")" type="text/javascript"></script>
+    <script>
+        $(document).ready(function () {
+
+            // Toggle the dropdown menu's
+            $(".dropdown .button, .dropdown button").click(function () {
+                if (!$(this).find('span.toggle').hasClass('active')) {
+                    $('.dropdown-slider').slideUp();
+                    $('span.toggle').removeClass('active');
+                }
+
+                // open selected dropown
+                $(this).parent().find('.dropdown-slider').slideToggle('fast');
+                $(this).find('span.toggle').toggleClass('active');
+
+                return false;
+            });
+
+        });
+
+        // Close open dropdown slider by clicking elsewhwere on page
+        $(document).bind('click', function (e) {
+            if (e.target.id != $('.dropdown').attr('class')) {
+                $('.dropdown-slider').slideUp();
+                $('span.toggle').removeClass('active');
+            }
+        });
+  </script>
+</head>
+<body>
+    <header>
+    <div class="buttons">
+    <a href="/" class="button left"><span class="icon icon108"></span><span class="label">Inicio</span></a>
+
+        <div class="dropdown">
+            <a href="#" class="button middle"><span class="icon icon197"></span><span class="label">Aeropuertos</span><span class="toggle"></span></a>
+            <div class="dropdown-slider">
+                <a href="/Aeropuerto/Create" class="ddm"><span class="icon icon3"></span><span class="label">Nuevo Aeropuerto</span></a>
+                <a href="/Aeropuerto" class="ddm"><span class="icon icon3"></span><span class="label">Ver Todas</span></a>
+            </div>
+        </div>
+         <div class="dropdown">
+            <a href="#" class="button right"><span class="icon icon197"></span><span class="label">Avion</span><span class="toggle"></span></a>
+            <div class="dropdown-slider">
+                <a href="/Avion/Create" class="ddm"><span class="icon icon3"></span><span class="label">Nueva Avion</span></a>
+                <a href="/Avion" class="ddm"><span class="icon icon3"></span><span class="label">Ver Todas</span></a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="#" class="button middle"><span class="icon icon197"></span><span class="label">Aerolineas</span><span class="toggle"></span></a>
+            <div class="dropdown-slider">
+                <a href="/Aerolinea/Create" class="ddm"><span class="icon icon3"></span><span class="label">Nueva Aerolinea</span></a>
+                <a href="/Aerolinea" class="ddm"><span class="icon icon3"></span><span class="label">Ver Todas</span></a>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <a href="#" class="button left"><span class="icon icon197"></span><span class="label">Clases</span><span class="toggle"></span></a>
+            <div class="dropdown-slider">
+                <a href="/Clases/Create" class="ddm"><span class="icon icon3"></span><span class="label">Nueva Clase</span></a>
+                <a href="/Clases" class="ddm"><span class="icon icon3"></span><span class="label">Ver Todas</span></a>
+            </div>
+        </div>
+            <div class="dropdown">
+            <a href="#" class="button left"><span class="icon icon197"></span><span class="label">Vuelos</span><span class="toggle"></span></a>
+            <div class="dropdown-slider">
+                <a href="/Vuelo/Create" class="ddm"><span class="icon icon3"></span><span class="label">Nuevo Vuelo</span></a>
+                <a href="/Vuelo" class="ddm"><span class="icon icon3"></span><span class="label">Ver Todas</span></a>
+            </div>
+        </div>
+    </div>
+    </header>
+    <section class="content">
+    
+
+                <!--ul id="menu">
+                    <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Aerolineas", "Index", "aerolinea")</li>
+                    <li>@Html.ActionLink("Aeropuertos", "Index", "aeropuerto")</li>
+                    <li>@Html.ActionLink("Vuelos", "Index", "vuelo")</li>
+                    <li>@Html.ActionLink("Clases", "Index", "clases")</li>
+                    <li>@Html.ActionLink("Aviones", "Index", "avion")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                </ul-->
+
+            @RenderBody()
+            </section>
+    <footer> &copy; 2012 JRS Software. All Rights Reserved. </footer>
+</body>
+</html>

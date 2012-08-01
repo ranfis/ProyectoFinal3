@@ -16,21 +16,21 @@ namespace TravelAgency
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
             if (Session["userLoged"] == null)
             {
-                Response.Redirect("Index.aspx");
+                Response.Redirect("Default.aspx?Login=s");
             }
+
             String partida, destino, fecha, fecha2;
             try
             {
-
                 HttpCookie cookie = Request.Cookies["reservacion"];
                 partida = cookie.Values["partida"];
                 destino = cookie.Values["destino"];
                 fecha = cookie.Values["fechapartida"];
                 fecha2 = cookie.Values["fecharegreso"];
-                Request.Cookies.Remove("reservacion");
+                Request.Cookies["reservacion"].Value = null;
+
             }
             catch (Exception)
             {
@@ -67,11 +67,7 @@ namespace TravelAgency
         {
             try
             {
-
                 var vuelos = servicio.buscarVuelos(partida, destino, fecha);
-                Response.Cookies.Clear();
-                Request.Cookies.Clear();
-                Response.Cookies.Remove("reservacion");
                 foreach (var vuelo in vuelos)
                 {
                     if (true)
@@ -158,7 +154,7 @@ namespace TravelAgency
                         btn.Attributes["type"] = "button";
                         btn.Attributes["runat"] = "server";
                         btn.Attributes["name"] = "miradio";
-                        btn.Attributes["onclick"] = "fpclase.value="+c.codigo.ToString();
+                        btn.Attributes["onclick"] = "fpclase.value=" + c.codigo.ToString();
                         lbl.Text = c.descripcion;
                         div.Controls.Add(btn);
                     }
@@ -176,8 +172,8 @@ namespace TravelAgency
                     tr.Cells.Add(tdClase);
                     tr.BorderWidth = 2;
                     var ocupados = agencia.reservacions.ToList().FindAll(x => (x.vuelo.Equals(vuelo.codigo)));
-                    //ocupados.Count
-                    if (90 >= cap)
+
+                    if (ocupados.Count >= cap)
                     {
                         System.Drawing.Color yy = System.Drawing.Color.FromArgb(255, 255, 0);
                         tr.BorderColor = yy;
@@ -195,7 +191,6 @@ namespace TravelAgency
                     table.Rows.Add(tr);
 
                 }
-
 
             }
             catch (Exception)
@@ -218,43 +213,82 @@ namespace TravelAgency
         {
             String cliente = Session["userLoged"].ToString();
             Models.reservacion r = new Models.reservacion();
+
             r.codigo = MD5Generator.generarMD5(DateTime.Now.Millisecond + fpvuelo.Value).Substring(0, 8);
-            r.agencia = "TRV001";
+            r.agencia = agencia.agencias.First().codigo;
             r.vuelo = fpvuelo.Value;
             r.precio = 2000;
             r.clase = fpclase.Value;
             if (fplleno.Value.Equals("1"))
             {
                 r.estado = 1;
-                Label5.Text = "legal";
             }
             else
             {
                 r.estado = 0;
-                Label5.Text = "lleno";
 
             }
             r.cliente = cliente;
-            r.asiento = "A1";
+            r.asiento = "A" + fpclase.Value + fpreservacion;
             agencia.reservacions.AddObject(r);
+
+            if (true)
+            {
+                Models.reservacion r2 = new Models.reservacion();
+                r2.codigo = MD5Generator.generarMD5(DateTime.Now.Millisecond + fpvuelo.Value).Substring(0, 8);
+                r2.agencia = agencia.agencias.First().codigo;
+                r2.vuelo = fpvuelo.Value;
+                r2.precio = 2000;
+                r2.clase = fpclase.Value;
+                Models.usuario u = agencia.usuarios.ToList().Find(x => (x.nusuario.Equals(Session["userLoged"])));
+                if (fplleno.Value.Equals("1"))
+                {
+                    r.estado = 1;
+                    inalert.Attributes["onlick"] = "alert('Vuelo reservado con exito');";
+                    
+                    try
+                    {
+                        EnviadorDeCorreos.envialEmail(u.correo, "El vuelo " + fpvuelo + "Gracias por su reservacion", "<center>" +
+        "<img src='http://dl.dropbox.com/u/11327760/Agencia-de-viajes.jpg' />" +
+        "<h1>JR Travel Agency</h1>" +
+        "<p>Le informamos que su reserva al vuelo " + fpvuelo + " se proceso correctamente.</p>" +
+        "<p>Gracias por preferirnos, tenga un buen viaje.</p>");
+
+                    }
+                    catch (Exception)
+                    {
+
+                    }
+
+                }
+                else
+                {
+                    r.estado = 0;
+                    try
+                    {
+                        EnviadorDeCorreos.envialEmail(u.correo, "El vuelo " + fpvuelo + "Usted ha entrada a la lista de espera", "<center>" +
+        "<img src='http://dl.dropbox.com/u/11327760/Agencia-de-viajes.jpg' />" +
+        "<h1>JR Travel Agency</h1>" +
+        "<p>Le informamos que su reserva al vuelo " + fpvuelo + " ha sido guardada como pendiente</p>" +
+                        "<p>Le informaremos por esta misma via, tan pronto como el vuelo este disponible.</p>" +
+        "<p>Gracias por preferirnos.</p>");
+
+                    }
+                    catch (Exception)
+                    {
+
+                    }
+
+                }
+                r.cliente = cliente;
+                r.asiento = "A" + fpclase.Value + fpreservacion;
+                agencia.reservacions.AddObject(r);
+            }
+
+
             agencia.SaveChanges();
+            Response.Redirect("Reservaciones.aspx");
         }
     }
 
 }
-
-/*Panel msg1 = new Panel();
-                Panel msg2 = new Panel();
-                Panel msg3 = new Panel();
-                msg1.CssClass = "modal";
-                msg2.CssClass = "modal-header";
-                HtmlGenericControl btnc = new HtmlGenericControl("button");
-                btnc.Attributes["class"] = "close";
-                btnc.Attributes["data-dismiss"] = "modal";
-                msg2.Controls.Add(btnc);
-                msg3.CssClass = "modal-body";
-                Label msg = new Label();
-                msg.Text = "KLK1";
-                msg3.Controls.Add(msg);
-                Page.Controls.Add(msg1);
-*/

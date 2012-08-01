@@ -8,12 +8,13 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.ComponentModel;
+using System.Data.EntityClient;
 using System.Data.Objects;
 using System.Data.Objects.DataClasses;
-using System.Data.EntityClient;
-using System.ComponentModel;
-using System.Xml.Serialization;
+using System.Linq;
 using System.Runtime.Serialization;
+using System.Xml.Serialization;
 
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
@@ -137,6 +138,7 @@ namespace TravelAgency.Models
         private ObjectSet<usuario> _usuarios;
 
         #endregion
+
         #region AddTo Methods
     
         /// <summary>
@@ -172,11 +174,11 @@ namespace TravelAgency.Models
         }
 
         #endregion
+
     }
-    
 
     #endregion
-    
+
     #region Entities
     
     /// <summary>
@@ -207,6 +209,7 @@ namespace TravelAgency.Models
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -309,6 +312,7 @@ namespace TravelAgency.Models
         partial void OndireccionChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -335,6 +339,7 @@ namespace TravelAgency.Models
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -369,6 +374,7 @@ namespace TravelAgency.Models
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -567,6 +573,7 @@ namespace TravelAgency.Models
         partial void OnasientoChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -647,6 +654,7 @@ namespace TravelAgency.Models
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -671,6 +679,7 @@ namespace TravelAgency.Models
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -725,6 +734,7 @@ namespace TravelAgency.Models
         partial void OndescripcionChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -751,6 +761,7 @@ namespace TravelAgency.Models
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -771,7 +782,8 @@ namespace TravelAgency.Models
         /// <param name="rol">Initial value of the rol property.</param>
         /// <param name="nombre">Initial value of the nombre property.</param>
         /// <param name="apellido">Initial value of the apellido property.</param>
-        public static usuario Createusuario(global::System.String nusuario, global::System.String clave, global::System.String rol, global::System.String nombre, global::System.String apellido)
+        /// <param name="correo">Initial value of the correo property.</param>
+        public static usuario Createusuario(global::System.String nusuario, global::System.String clave, global::System.String rol, global::System.String nombre, global::System.String apellido, global::System.String correo)
         {
             usuario usuario = new usuario();
             usuario.nusuario = nusuario;
@@ -779,10 +791,12 @@ namespace TravelAgency.Models
             usuario.rol = rol;
             usuario.nombre = nombre;
             usuario.apellido = apellido;
+            usuario.correo = correo;
             return usuario;
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -907,8 +921,33 @@ namespace TravelAgency.Models
         private global::System.String _apellido;
         partial void OnapellidoChanging(global::System.String value);
         partial void OnapellidoChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String correo
+        {
+            get
+            {
+                return _correo;
+            }
+            set
+            {
+                OncorreoChanging(value);
+                ReportPropertyChanging("correo");
+                _correo = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("correo");
+                OncorreoChanged();
+            }
+        }
+        private global::System.String _correo;
+        partial void OncorreoChanging(global::System.String value);
+        partial void OncorreoChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -973,8 +1012,10 @@ namespace TravelAgency.Models
         }
 
         #endregion
+
     }
 
     #endregion
+
     
 }

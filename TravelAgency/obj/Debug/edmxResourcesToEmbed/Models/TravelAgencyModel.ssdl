@@ -56,6 +56,7 @@
     <Property Name="rol" Type="varchar" Nullable="false" MaxLength="8" />
     <Property Name="nombre" Type="varchar" Nullable="false" MaxLength="45" />
     <Property Name="apellido" Type="varchar" Nullable="false" MaxLength="45" />
+    <Property Name="correo" Type="varchar" Nullable="false" MaxLength="45" />
   </EntityType>
   <Association Name="FK_Reservacion_Agencia">
     <End Role="agencia" Type="TravelAgencyModel.Store.agencia" Multiplicity="1" />

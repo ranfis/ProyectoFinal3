@@ -15,7 +15,7 @@ namespace TravelAgency
         {
             if (Session["userLoged"] == null)
             {
-                Response.Redirect("Default.aspx");
+                Response.Redirect("Default.aspx?Login=s");
             }
             else
             {
@@ -28,7 +28,7 @@ namespace TravelAgency
         {
             try
             {
-                var reservaciones = agencia.reservacions.ToList().FindAll(x => (x.cliente.Equals(Session["userLoged"])));
+                var reservaciones = agencia.reservacions.ToList().FindAll(x => (x.cliente.Equals(Session["userLoged"]) && x.estado!=2));
 
                 if (reservaciones.Count < 1)
                 {

@@ -87,6 +87,7 @@
       <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\localhost\FlightService.disco" />
+    <Content Include="img\Agencia-de-viajes.jpg" />
     <Content Include="img\logo.png" />
     <Content Include="Index.aspx" />
     <Content Include="jquery\css\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -107,6 +108,7 @@
     <Content Include="jquery\js\jquery-ui-1.8.21.custom.min.js" />
     <Content Include="js\calls.js" />
     <Content Include="js\functions.js" />
+    <Content Include="Registro.aspx" />
     <Content Include="Reservacion.aspx" />
     <Content Include="Reservaciones.aspx" />
     <Content Include="Web.config" />
@@ -161,6 +163,8 @@
     <Compile Include="Account\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
+    <Compile Include="class\EnviadorDeCorreos.cs" />
+    <Compile Include="class\Temporizador.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -178,6 +182,13 @@
     </Compile>
     <Compile Include="Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registro.aspx.cs">
+      <DependentUpon>Registro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registro.aspx.designer.cs">
+      <DependentUpon>Registro.aspx</DependentUpon>
     </Compile>
     <Compile Include="Reservacion.aspx.cs">
       <DependentUpon>Reservacion.aspx</DependentUpon>

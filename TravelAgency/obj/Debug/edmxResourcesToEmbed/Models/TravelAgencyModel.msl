@@ -36,6 +36,7 @@
     <EntitySetMapping Name="usuarios">
       <EntityTypeMapping TypeName="TravelAgencyModel.usuario">
         <MappingFragment StoreEntitySet="usuario">
+          <ScalarProperty Name="correo" ColumnName="correo" />
           <ScalarProperty Name="nusuario" ColumnName="nusuario" />
           <ScalarProperty Name="clave" ColumnName="clave" />
           <ScalarProperty Name="rol" ColumnName="rol" />

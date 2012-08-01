@@ -2,14 +2,11 @@
     CodeBehind="Reservacion.aspx.cs" Inherits="TravelAgency.Reservacion" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
-<script>
-    function msgRes() {
-        $('#msgRes').modal('show')
-    }
 
-</script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    <h1>
+        <span class="con dark super">Lista de vuelos</span></h1>
     <div class="tabbable">
         <!-- Only required for left/right tabs -->
         <ul class="nav nav-tabs">
@@ -73,27 +70,13 @@
     <button id="fpreservacion" runat="server" onserverclick="hacerReservacion" clientidmode="Static"
         type="button" style="display: none;">
     </button>
-    <input id="fpvuelo" runat="server" clientidmode="Static"  />
-    <input id="fplleno" runat="server" clientidmode="Static"  />
-    <input id="fpclase" runat="server" clientidmode="Static"  />
-    <button id="fpmodal1" type="button" runat="server" style="display: none;" clientidmode="Static" onclick="msgres();" ></button>
+    <input id="fpvuelo" runat="server" clientidmode="Static" style="display: none;" />
+    <input id="fplleno" runat="server" clientidmode="Static" style="display: none;" />
+    <input id="fpclase" runat="server" clientidmode="Static" style="display: none;" />
 
-
-
-
-
-
-
-
-
-    <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label>
-
-
-
-
-
-
-
-
-
+    <input id="fpvuelo2" runat="server" clientidmode="Static" style="display: none;" />
+    <input id="fplleno2" runat="server" clientidmode="Static" style="display: none;" />
+    <input id="fpclase2" runat="server" clientidmode="Static" style="display: none;" />
+    <button id="inalert" type="button" runat="server" style="display: none;" clientidmode="Static">
+    </button>
 </asp:Content>

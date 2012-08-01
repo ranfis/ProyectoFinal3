@@ -62,6 +62,7 @@
     <Property Name="apellido" Type="String" Nullable="false" MaxLength="45" Unicode="false" FixedLength="false" />
     <NavigationProperty Name="reservacions" Relationship="TravelAgencyModel.FK_Reservacion_Cliente" FromRole="usuario" ToRole="reservacion" />
     <NavigationProperty Name="rol1" Relationship="TravelAgencyModel.FK_Usuario_Rol" FromRole="usuario" ToRole="rol" />
+    <Property Type="String" Name="correo" Nullable="false" />
   </EntityType>
   <Association Name="FK_Reservacion_Agencia">
     <End Role="agencia" Type="TravelAgencyModel.agencia" Multiplicity="1" />
