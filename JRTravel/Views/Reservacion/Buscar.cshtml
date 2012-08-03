@@ -1,9 +1,13 @@
 ﻿@{
-    ViewBag.Title = "Buscar";
+    ViewBag.Title = "JRTravel | Buscar vuelos";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 <div class="bluePanel mid">
-    <form method="post" action="">
+@{
+    var @aeropuertos = ViewBag.Aeropuertos;
+}
+    <form method="post" action="" onsubmit="return validarReservacion();" >
     <table class="pnlReserv">
         <tr>
             <td>
@@ -28,10 +32,10 @@
         </tr>
         <tr>
             <td>
-                <input id="txtPartida" placeholder="Lugar de partida" data-provide="typeahead" data-items="4" />
+                <input id="txtPartida" name="txtPartida" placeholder="Lugar de partida" data-source="@aeropuertos" type="text" data-provide="typeahead" data-items="4" />
             </td>
             <td>
-                <input id="txtDestino" placeholder="Lugar de destino" data-provide="typeahead" data-items="4" />
+                <input id="txtDestino" name="txtDestino" placeholder="Lugar de destino" data-source="@aeropuertos" type="text" data-provide="typeahead" data-items="4" />
             </td>
         </tr>
         <tr>
@@ -44,10 +48,10 @@
         </tr>
         <tr>
             <td>
-                <input id="datepickerPartida" />
+                <input id="datepickerPartida"  type="text" name="datepickerPartida" />
             </td>
             <td>
-                <input id="datepickerRetorno" />
+                <input id="datepickerRetorno" type="text" name="datepickerRetorno" />
             </td>
         </tr>
         <tr>

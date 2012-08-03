@@ -8,6 +8,20 @@ namespace JRTravel.Controllers
 {
     public class LoginController : Controller
     {
+        public bool validarLogin()
+        {
+            bool resultado = true;
+            JRTravel.Models.RegexValidator.iniciar();
+            if (!JRTravel.Models.RegexValidator.validar["texto"].IsMatch(Request["txtUser"]))
+            {
+                resultado = false;
+            }
+            if (!JRTravel.Models.RegexValidator.validar["texto"].IsMatch(Request["txtPass"]))
+            {
+                resultado = false;
+            }
+            return resultado;
+        }
         public ActionResult Index()
         {
             String user = Request["txtUser"];
@@ -22,6 +36,7 @@ namespace JRTravel.Controllers
                 }
                 else
                 {
+
                     Response.Redirect("Home/Nosotros");
                 }
             }
@@ -33,8 +48,14 @@ namespace JRTravel.Controllers
             using (JRTravel.Models.TravelAgencyEntities TA = new Models.TravelAgencyEntities())
             {
                 JRTravel.Models.usuario usuario = new Models.usuario();
-                // TODO
-                // TODO
+                usuario.nusuario = Request["txtNombreUsuario"];
+                usuario.clave = Request["txtClave"];
+                usuario.correo = Request["txtCorreo"];
+                usuario.nombre = Request["txtNombre"];
+                usuario.apellido = Request["txtApellidos"];
+
+
+
                 TA.SaveChanges();
             }
             return View();

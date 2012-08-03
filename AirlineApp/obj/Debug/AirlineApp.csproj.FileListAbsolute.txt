@@ -7,7 +7,5 @@ D:\AirlineApp\AirlineApp\AirlineApp\obj\Debug\AirlineApp.dll
 D:\AirlineApp\AirlineApp\AirlineApp\obj\Debug\AirlineApp.pdb
 C:\ProyectoFinal3\AirlineApp\bin\AirlineApp.dll
 C:\ProyectoFinal3\AirlineApp\bin\AirlineApp.pdb
-C:\ProyectoFinal3\AirlineApp\bin\EntityFramework.xml
-C:\ProyectoFinal3\AirlineApp\obj\Debug\AirlineApp.csprojResolveAssemblyReference.cache
 C:\ProyectoFinal3\AirlineApp\obj\Debug\AirlineApp.dll
 C:\ProyectoFinal3\AirlineApp\obj\Debug\AirlineApp.pdb

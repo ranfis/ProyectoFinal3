@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "Vuelos";
+}
+<div class="bluePanel full">
+    @{  
+        <table border="1" class="vuelos">
+            <tr>
+                <th>
+                    <span class="con">Ciudad de salida</span>
+                </th>
+                <th>
+                    <span class="con">Hora de salida</span>
+                </th>
+                <th>
+                    <span class="con">Ciudad de destino</span>
+                </th>
+                <th>
+                    <span class="con">Hora de llegada</span>
+                </th>
+                <th>
+                    <span class="con">Duracion</span>
+                </th>
+                <th>
+                    <span class="con">Aerolinea</span>
+                </th>
+                <th>
+                    <span class="con">Clases</span>
+                </th>
+            </tr>
+            @foreach (var vuelo in ViewBag.Vuelos)
+            {
+                <tr>
+                    <td class="vuelos">
+                        <span class="con">@vuelo.origen</span>
+                    </td>
+                    <td class="vuelos">
+                        <span class="con">@vuelo.salida</span>
+                    </td>
+                    <td class="vuelos">
+                        <span class="con">@vuelo.destino</span>
+                    </td>
+                    <td class="vuelos">
+                        <span class="con">@vuelo.llegada</span>
+                    </td>
+                    <td class="vuelos">
+                        <span class="con">12</span>
+                    </td>
+                    <td class="vuelos">
+                        <span class="con">@vuelo.aerolinea</span>
+                    </td>
+                    <td class="vuelos">
+                        <span class="con">Clase</span>
+                    </td>
+                </tr>
+            }
+        </table>
+    }
+</div>

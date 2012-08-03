@@ -923,7 +923,7 @@ namespace JRTravel.Models
                 {
                     OnnusuarioChanging(value);
                     ReportPropertyChanging("nusuario");
-                    _nusuario = StructuralObject.SetValidValue(value, false);
+                    //_nusuario = StructuralObject.SetValidValue(value, false);
                     ReportPropertyChanged("nusuario");
                     OnnusuarioChanged();
                 }
@@ -948,7 +948,7 @@ namespace JRTravel.Models
             {
                 OnclaveChanging(value);
                 ReportPropertyChanging("clave");
-                _clave = StructuralObject.SetValidValue(value, false);
+                //_clave = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("clave");
                 OnclaveChanged();
             }
@@ -972,7 +972,7 @@ namespace JRTravel.Models
             {
                 OnrolChanging(value);
                 ReportPropertyChanging("rol");
-                _rol = StructuralObject.SetValidValue(value, false);
+                //_rol = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("rol");
                 OnrolChanged();
             }
@@ -996,7 +996,7 @@ namespace JRTravel.Models
             {
                 OnnombreChanging(value);
                 ReportPropertyChanging("nombre");
-                _nombre = StructuralObject.SetValidValue(value, false);
+                //_nombre = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("nombre");
                 OnnombreChanged();
             }
@@ -1020,7 +1020,7 @@ namespace JRTravel.Models
             {
                 OnapellidoChanging(value);
                 ReportPropertyChanging("apellido");
-                _apellido = StructuralObject.SetValidValue(value, false);
+                //_apellido = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("apellido");
                 OnapellidoChanged();
             }
@@ -1044,7 +1044,7 @@ namespace JRTravel.Models
             {
                 OncorreoChanging(value);
                 ReportPropertyChanging("correo");
-                _correo = StructuralObject.SetValidValue(value, false);
+                //_correo = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("correo");
                 OncorreoChanged();
             }

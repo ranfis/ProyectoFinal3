@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="listarVuelosPor">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="partida" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="destino" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fecha" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="listarVuelosPorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="listarVuelosPorResult" type="tns:ArrayOfVuelo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfVuelo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="vuelo" nillable="true" type="tns:vuelo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="vuelo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="codigo" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="aerolinea" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="origen" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="destino" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="avion" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="salida" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="llegada" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="estado" nillable="true" type="s:byte" />
+              <s:element minOccurs="0" maxOccurs="1" name="aerolinea1Reference" type="tns:EntityReferenceOfaerolinea" />
+              <s:element minOccurs="0" maxOccurs="1" name="aeropuertoReference" type="tns:EntityReferenceOfaeropuerto" />
+              <s:element minOccurs="0" maxOccurs="1" name="aeropuerto1Reference" type="tns:EntityReferenceOfaeropuerto" />
+              <s:element minOccurs="0" maxOccurs="1" name="avion1Reference" type="tns:EntityReferenceOfavion" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="EntityObject" abstract="true">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:StructuralObject">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="EntityKey" type="tns:EntityKey" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="StructuralObject" abstract="true" />
+      <s:complexType name="EntityKey">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="EntitySetName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EntityContainerName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EntityKeyValues" type="tns:ArrayOfEntityKeyMember" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfEntityKeyMember">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EntityKeyMember" nillable="true" type="tns:EntityKeyMember" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EntityKeyMember">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Key" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EntityReferenceOfaerolinea">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityReference" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="EntityReference" abstract="true">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RelatedEnd">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="EntityKey" type="tns:EntityKey" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="RelatedEnd" abstract="true" />
+      <s:complexType name="EntityReferenceOfavion">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityReference" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="EntityReferenceOfaeropuerto">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityReference" />
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="listarVuelos">
+        <s:complexType />
+      </s:element>
+      <s:element name="listarVuelosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="listarVuelosResult" type="tns:ArrayOfVuelo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="listaAeropuertos">
+        <s:complexType />
+      </s:element>
+      <s:complexType name="ArrayOfAeropuerto">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="aeropuerto" nillable="true" type="tns:aeropuerto" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="aeropuerto">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityObject">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="codigo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="descripcion" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ciudad" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="pais" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="direccion" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="listaAeropuertosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="listaAeropuertosResult" type="tns:ArrayOfAeropuerto" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="capacidadVuelo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="vuelo" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAvion">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="avion" nillable="true" type="tns:avion" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="avion">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="codigo" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="descripcion" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="capacidad" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="capacidadVueloResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="capacidadVueloResult" type="tns:ArrayOfAvion" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="listarVuelosPorSoapIn">
+    <wsdl:part name="parameters" element="tns:listarVuelosPor" />
+  </wsdl:message>
+  <wsdl:message name="listarVuelosPorSoapOut">
+    <wsdl:part name="parameters" element="tns:listarVuelosPorResponse" />
+  </wsdl:message>
+  <wsdl:message name="listarVuelosSoapIn">
+    <wsdl:part name="parameters" element="tns:listarVuelos" />
+  </wsdl:message>
+  <wsdl:message name="listarVuelosSoapOut">
+    <wsdl:part name="parameters" element="tns:listarVuelosResponse" />
+  </wsdl:message>
+  <wsdl:message name="listaAeropuertosSoapIn">
+    <wsdl:part name="parameters" element="tns:listaAeropuertos" />
+  </wsdl:message>
+  <wsdl:message name="listaAeropuertosSoapOut">
+    <wsdl:part name="parameters" element="tns:listaAeropuertosResponse" />
+  </wsdl:message>
+  <wsdl:message name="capacidadVueloSoapIn">
+    <wsdl:part name="parameters" element="tns:capacidadVuelo" />
+  </wsdl:message>
+  <wsdl:message name="capacidadVueloSoapOut">
+    <wsdl:part name="parameters" element="tns:capacidadVueloResponse" />
+  </wsdl:message>
+  <wsdl:portType name="FlightServiceSoap">
+    <wsdl:operation name="listarVuelosPor">
+      <wsdl:input message="tns:listarVuelosPorSoapIn" />
+      <wsdl:output message="tns:listarVuelosPorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="listarVuelos">
+      <wsdl:input message="tns:listarVuelosSoapIn" />
+      <wsdl:output message="tns:listarVuelosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="listaAeropuertos">
+      <wsdl:input message="tns:listaAeropuertosSoapIn" />
+      <wsdl:output message="tns:listaAeropuertosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="capacidadVuelo">
+      <wsdl:input message="tns:capacidadVueloSoapIn" />
+      <wsdl:output message="tns:capacidadVueloSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="FlightServiceSoap" type="tns:FlightServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="listarVuelosPor">
+      <soap:operation soapAction="http://tempuri.org/listarVuelosPor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarVuelos">
+      <soap:operation soapAction="http://tempuri.org/listarVuelos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listaAeropuertos">
+      <soap:operation soapAction="http://tempuri.org/listaAeropuertos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="capacidadVuelo">
+      <soap:operation soapAction="http://tempuri.org/capacidadVuelo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="FlightServiceSoap12" type="tns:FlightServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="listarVuelosPor">
+      <soap12:operation soapAction="http://tempuri.org/listarVuelosPor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarVuelos">
+      <soap12:operation soapAction="http://tempuri.org/listarVuelos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listaAeropuertos">
+      <soap12:operation soapAction="http://tempuri.org/listaAeropuertos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="capacidadVuelo">
+      <soap12:operation soapAction="http://tempuri.org/capacidadVuelo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FlightService">
+    <wsdl:port name="FlightServiceSoap" binding="tns:FlightServiceSoap">
+      <soap:address location="http://localhost:3737/FlightService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="FlightServiceSoap12" binding="tns:FlightServiceSoap12">
+      <soap12:address location="http://localhost:3737/FlightService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
