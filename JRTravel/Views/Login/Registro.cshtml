@@ -1,0 +1,75 @@
+﻿@{
+    ViewBag.Title = "Registro";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>
+    <span class="con dark super">Registrarse</span></h1>
+<table style="width: 400px; margin: auto">
+    <tr>
+        <td>
+            <label id="lblCorreo" >Correo:</label>
+        </td>
+        <td>
+            <input id="txtCorreo" placeholder="digite su correo electronico" width="210px" />
+        </td>
+        <td>
+            &nbsp;
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label id="lblNombreUsuario" >Nombre Usuario:</label>
+        </td>
+        <td>
+            <input id="txtNombreUsuario" placeholder="digite su nombre de usuario" />
+        </td>
+        <td>
+            &nbsp;
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label id="lblClave" >Clave: </label>
+        </td>
+        <td>
+            <input id="txtClave" placeholder="digite su clave" />
+        </td>
+        <td>
+            &nbsp;
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label id="lblNombres" >Nombre(s):</label>
+        </td>
+        <td>
+            <input id="txtNombres" placeholder="digite su (s) nombre (s)" />
+        </td>
+        <td>
+            &nbsp;
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label id="lblApellidos" >Apellidos(s):</label>
+        </td>
+        <td>
+            <input id="txtApellidos" placeholder="digite su (s) apellido (s)" />
+        </td>
+        <td>
+            &nbsp;
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <button id="btnRegistrar" class="btn" onclick="submit" >Registrarse</button>
+        </td>
+    </tr>
+</table>
+<script>
+    ("#txtCorreo").click(function () {
+        $.post("registrarse.aspx", function (data) {
+            alert(data);
+        })
+    });
+</script>

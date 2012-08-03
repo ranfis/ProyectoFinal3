@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TravelAgencyModelStoreContainer" CdmEntityContainer="TravelAgencyEntities">
+    <EntitySetMapping Name="agencias">
+      <EntityTypeMapping TypeName="TravelAgencyModel.agencia">
+        <MappingFragment StoreEntitySet="agencia">
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="facturas">
+      <EntityTypeMapping TypeName="TravelAgencyModel.factura">
+        <MappingFragment StoreEntitySet="factura">
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="reservacion" ColumnName="reservacion" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="reservacions">
+      <EntityTypeMapping TypeName="TravelAgencyModel.reservacion">
+        <MappingFragment StoreEntitySet="reservacion">
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="vuelo" ColumnName="vuelo" />
+          <ScalarProperty Name="agencia" ColumnName="agencia" />
+          <ScalarProperty Name="clase" ColumnName="clase" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="cliente" ColumnName="cliente" />
+          <ScalarProperty Name="asiento" ColumnName="asiento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rols">
+      <EntityTypeMapping TypeName="TravelAgencyModel.rol">
+        <MappingFragment StoreEntitySet="rol">
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usuarios">
+      <EntityTypeMapping TypeName="TravelAgencyModel.usuario">
+        <MappingFragment StoreEntitySet="usuario">
+          <ScalarProperty Name="nusuario" ColumnName="nusuario" />
+          <ScalarProperty Name="clave" ColumnName="clave" />
+          <ScalarProperty Name="rol" ColumnName="rol" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="apellido" ColumnName="apellido" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

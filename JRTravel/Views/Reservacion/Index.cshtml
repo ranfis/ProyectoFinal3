@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+@{  
+    <table border="1">
+    <tr>
+        <th>
+            Nombre
+        </th>
+        <th>
+            Apellido
+        </th>
+        <th>
+            Usuario
+        </th>
+    </tr>
+
+@foreach (var @item in ViewBag.Usuarios)
+{
+    <tr>
+        <td>
+            @item.nombre
+        </td>
+        <td>
+            @item.apellido
+        </td>
+        <td>
+            @item.nusuario
+        </td>
+    </tr>
+}
+
+</table>
+}

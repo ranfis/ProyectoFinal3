@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TravelAgencyModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="TravelAgencyEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="agencias" EntityType="TravelAgencyModel.agencia" />
+    <EntitySet Name="facturas" EntityType="TravelAgencyModel.factura" />
+    <EntitySet Name="reservacions" EntityType="TravelAgencyModel.reservacion" />
+    <EntitySet Name="rols" EntityType="TravelAgencyModel.rol" />
+    <EntitySet Name="usuarios" EntityType="TravelAgencyModel.usuario" />
+    <AssociationSet Name="FK_Factura_Reservacion" Association="TravelAgencyModel.FK_Factura_Reservacion">
+      <End Role="reservacion" EntitySet="reservacions" />
+      <End Role="factura" EntitySet="facturas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reservacion_Cliente" Association="TravelAgencyModel.FK_Reservacion_Cliente">
+      <End Role="usuario" EntitySet="usuarios" />
+      <End Role="reservacion" EntitySet="reservacions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_Rol" Association="TravelAgencyModel.FK_Usuario_Rol">
+      <End Role="rol" EntitySet="rols" />
+      <End Role="usuario" EntitySet="usuarios" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="agencia">
+    <Key>
+      <PropertyRef Name="codigo" />
+    </Key>
+    <Property Name="codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" Nullable="false" />
+    <Property Name="telefono" Type="String" Nullable="false" />
+    <Property Name="direccion" Type="String" Nullable="false" />
+  </EntityType>
+  <EntityType Name="factura">
+    <Key>
+      <PropertyRef Name="codigo" />
+    </Key>
+    <Property Name="codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="reservacion" Type="String" Nullable="false" />
+    <Property Name="precio" Type="Double" Nullable="false" />
+    <NavigationProperty Name="reservacion1" Relationship="TravelAgencyModel.FK_Factura_Reservacion" FromRole="factura" ToRole="reservacion" />
+  </EntityType>
+  <EntityType Name="reservacion">
+    <Key>
+      <PropertyRef Name="codigo" />
+    </Key>
+    <Property Name="codigo" Type="String" Nullable="false" />
+    <Property Name="vuelo" Type="Int32" Nullable="false" />
+    <Property Name="agencia" Type="Int32" Nullable="false" />
+    <Property Name="clase" Type="String" Nullable="false" />
+    <Property Name="estado" Type="SByte" />
+    <Property Name="cliente" Type="String" Nullable="false" />
+    <Property Name="asiento" Type="String" />
+    <NavigationProperty Name="facturas" Relationship="TravelAgencyModel.FK_Factura_Reservacion" FromRole="reservacion" ToRole="factura" />
+    <NavigationProperty Name="usuario" Relationship="TravelAgencyModel.FK_Reservacion_Cliente" FromRole="reservacion" ToRole="usuario" />
+  </EntityType>
+  <EntityType Name="rol">
+    <Key>
+      <PropertyRef Name="codigo" />
+    </Key>
+    <Property Name="codigo" Type="String" Nullable="false" />
+    <Property Name="descripcion" Type="String" />
+    <NavigationProperty Name="usuarios" Relationship="TravelAgencyModel.FK_Usuario_Rol" FromRole="rol" ToRole="usuario" />
+  </EntityType>
+  <EntityType Name="usuario">
+    <Key>
+      <PropertyRef Name="nusuario" />
+    </Key>
+    <Property Name="nusuario" Type="String" Nullable="false" />
+    <Property Name="clave" Type="String" Nullable="false" />
+    <Property Name="rol" Type="String" Nullable="false" />
+    <Property Name="nombre" Type="String" Nullable="false" />
+    <Property Name="apellido" Type="String" Nullable="false" />
+    <Property Name="correo" Type="String" Nullable="false" />
+    <NavigationProperty Name="reservacions" Relationship="TravelAgencyModel.FK_Reservacion_Cliente" FromRole="usuario" ToRole="reservacion" />
+    <NavigationProperty Name="rol1" Relationship="TravelAgencyModel.FK_Usuario_Rol" FromRole="usuario" ToRole="rol" />
+  </EntityType>
+  <Association Name="FK_Factura_Reservacion">
+    <End Role="reservacion" Type="TravelAgencyModel.reservacion" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="factura" Type="TravelAgencyModel.factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="reservacion">
+        <PropertyRef Name="codigo" />
+      </Principal>
+      <Dependent Role="factura">
+        <PropertyRef Name="reservacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reservacion_Cliente">
+    <End Role="usuario" Type="TravelAgencyModel.usuario" Multiplicity="1" />
+    <End Role="reservacion" Type="TravelAgencyModel.reservacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="nusuario" />
+      </Principal>
+      <Dependent Role="reservacion">
+        <PropertyRef Name="cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_Rol">
+    <End Role="rol" Type="TravelAgencyModel.rol" Multiplicity="1" />
+    <End Role="usuario" Type="TravelAgencyModel.usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rol">
+        <PropertyRef Name="codigo" />
+      </Principal>
+      <Dependent Role="usuario">
+        <PropertyRef Name="rol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

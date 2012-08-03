@@ -1,0 +1,62 @@
+﻿@{
+    ViewBag.Title = "Buscar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="bluePanel mid">
+    <form method="post" action="">
+    <table class="pnlReserv">
+        <tr>
+            <td>
+                <div class="btn-group" data-toggle="buttons-radio">
+                    <button class="btn active" type="button" onclick="datepickerRetorno.readOnly = false;"
+                        title="Reservar viaje de ida y vuelta">
+                        <span class="con dark">Ida y vuelta</span>
+                    </button>
+                    <button class="btn" type="button" onclick="datepickerRetorno.readOnly = true;" title="Reservar viaje de ida">
+                        <span class="con dark">Ida</span>
+                    </button>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span class="con">Salir de:</span>
+            </td>
+            <td>
+                <span class="con">Llegar a:</span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input id="txtPartida" placeholder="Lugar de partida" data-provide="typeahead" data-items="4" />
+            </td>
+            <td>
+                <input id="txtDestino" placeholder="Lugar de destino" data-provide="typeahead" data-items="4" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span class="con">Fecha de partida:</span>
+            </td>
+            <td>
+                <span class="con">Fecha de retorno:</span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input id="datepickerPartida" />
+            </td>
+            <td>
+                <input id="datepickerRetorno" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: right;">
+                <button id="btnBuscar" type="submit" class="btn btn-btn-primary" title="Buscar vuelos">
+                    <span class="con dark">Buscar</span>
+                </button>
+            </td>
+        </tr>
+    </table>
+    </form>
+</div>

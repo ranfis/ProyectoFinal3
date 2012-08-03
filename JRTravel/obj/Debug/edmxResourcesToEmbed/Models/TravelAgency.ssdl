@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TravelAgencyModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="TravelAgencyModelStoreContainer">
+    <EntitySet Name="agencia" EntityType="TravelAgencyModel.Store.agencia" store:Type="Tables" Schema="travelagency" />
+    <EntitySet Name="factura" EntityType="TravelAgencyModel.Store.factura" store:Type="Tables" Schema="travelagency" />
+    <EntitySet Name="reservacion" EntityType="TravelAgencyModel.Store.reservacion" store:Type="Tables" Schema="travelagency" />
+    <EntitySet Name="rol" EntityType="TravelAgencyModel.Store.rol" store:Type="Tables" Schema="travelagency" />
+    <EntitySet Name="usuario" EntityType="TravelAgencyModel.Store.usuario" store:Type="Tables" Schema="travelagency" />
+    <AssociationSet Name="FK_Factura_Reservacion" Association="TravelAgencyModel.Store.FK_Factura_Reservacion">
+      <End Role="reservacion" EntitySet="reservacion" />
+      <End Role="factura" EntitySet="factura" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reservacion_Cliente" Association="TravelAgencyModel.Store.FK_Reservacion_Cliente">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="reservacion" EntitySet="reservacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_Rol" Association="TravelAgencyModel.Store.FK_Usuario_Rol">
+      <End Role="rol" EntitySet="rol" />
+      <End Role="usuario" EntitySet="usuario" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="agencia">
+    <Key>
+      <PropertyRef Name="codigo" />
+    </Key>
+    <Property Name="codigo" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="varchar" Nullable="false" MaxLength="45" />
+    <Property Name="telefono" Type="varchar" Nullable="false" MaxLength="13" />
+    <Property Name="direccion" Type="varchar" Nullable="false" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="factura">
+    <Key>
+      <PropertyRef Name="codigo" />
+    </Key>
+    <Property Name="codigo" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="reservacion" Type="varchar" Nullable="false" MaxLength="8" />
+    <Property Name="precio" Type="double" Nullable="false" />
+  </EntityType>
+  <EntityType Name="reservacion">
+    <Key>
+      <PropertyRef Name="codigo" />
+    </Key>
+    <Property Name="codigo" Type="varchar" Nullable="false" MaxLength="8" />
+    <Property Name="vuelo" Type="int" Nullable="false" />
+    <Property Name="agencia" Type="int" Nullable="false" />
+    <Property Name="clase" Type="varchar" Nullable="false" MaxLength="45" />
+    <Property Name="estado" Type="tinyint" />
+    <Property Name="cliente" Type="varchar" Nullable="false" MaxLength="16" />
+    <Property Name="asiento" Type="varchar" MaxLength="3" />
+  </EntityType>
+  <EntityType Name="rol">
+    <Key>
+      <PropertyRef Name="codigo" />
+    </Key>
+    <Property Name="codigo" Type="varchar" Nullable="false" MaxLength="8" />
+    <Property Name="descripcion" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="usuario">
+    <Key>
+      <PropertyRef Name="nusuario" />
+    </Key>
+    <Property Name="nusuario" Type="varchar" Nullable="false" MaxLength="16" />
+    <Property Name="clave" Type="varchar" Nullable="false" MaxLength="45" />
+    <Property Name="rol" Type="varchar" Nullable="false" MaxLength="8" />
+    <Property Name="nombre" Type="varchar" Nullable="false" MaxLength="45" />
+    <Property Name="apellido" Type="varchar" Nullable="false" MaxLength="45" />
+    <Property Name="correo" Type="varchar" Nullable="false" MaxLength="45" />
+  </EntityType>
+  <Association Name="FK_Factura_Reservacion">
+    <End Role="reservacion" Type="TravelAgencyModel.Store.reservacion" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="factura" Type="TravelAgencyModel.Store.factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="reservacion">
+        <PropertyRef Name="codigo" />
+      </Principal>
+      <Dependent Role="factura">
+        <PropertyRef Name="reservacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reservacion_Cliente">
+    <End Role="usuario" Type="TravelAgencyModel.Store.usuario" Multiplicity="1" />
+    <End Role="reservacion" Type="TravelAgencyModel.Store.reservacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="nusuario" />
+      </Principal>
+      <Dependent Role="reservacion">
+        <PropertyRef Name="cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_Rol">
+    <End Role="rol" Type="TravelAgencyModel.Store.rol" Multiplicity="1" />
+    <End Role="usuario" Type="TravelAgencyModel.Store.usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rol">
+        <PropertyRef Name="codigo" />
+      </Principal>
+      <Dependent Role="usuario">
+        <PropertyRef Name="rol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

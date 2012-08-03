@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/bootstrap.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/Style.css")" rel="stylesheet" type="text/css" />
+    <script>
+        function abrirLogin() {
+            $('#myModal').modal('show')
+        }
+    </script>
+</head>
+<body>
+    <div class="modal hide" id="myModal">
+        <form action='Login' method='post' accept-charset='UTF-8'>
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">
+                ×</button>
+            <h3>
+                Iniciar Sesion</h3>
+        </div>
+        <div class="modal-body">
+            <table>
+                <tr>
+                    <td>
+                        <div class='login'>
+                            <span class="con dark">Usuario:</span>
+                            <br />
+                            <input type="text" id='txtUser' style='margin-bottom: 15px;' placeholder='Nombre de usuario'
+                                name='txtUser' />
+                            <br />
+                            <span class="con dark">Contrase&ntilde;a:</span>
+                            <br />
+                            <input type="password" id='txtPass' style='margin-bottom: 15px;' placeholder='Contrase&ntilde;a'
+                                name='txtPass' />
+                            <br />
+                        </div>
+                    </td>
+                    <td>
+                        <img src="../Content/images/logo.png" height="64px" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="modal-footer">
+            <button id="btnLogin" class='btn btn-success' title="Ingresar" onclick="submit" type="submit">
+                <span class="con">Ingresar</span>
+            </button>
+            <button clientidmode="Static" id="Button1" runat="server" class='btn btn-info' title="Ingresar"
+                onclick="/Login/Registro'" type="button">
+                <span class="con">Registrase</span>
+            </button>
+        </div>
+        </form>
+    </div>
+    <div class="page">
+        <header>
+        <div class='cssmenu'>
+            <ul class="menu">
+                <li><a href="/"><span class="con">Inicio</span></a></li>
+                <li class='has-sub '><a href="#"><span class="con">Reservaciones</span></a>
+                    <ul>
+                        <li><a href="/Reservacion/Buscar"><span class="con">Hacer reservacion</span></a></li>
+                        <li><a href="/Reservacion/Reservaciones"><span class="con">Mis reservaciones</span></a></li>
+                    </ul>
+                </li>
+                <li class='has-sub '><a href='#'><span class="con">Mi Cuenta</span></a>
+                    <ul>
+                        <li><a href='#Login' runat='server' onclick='abrirLogin();'><span class='con'>Ingresar</span></a></li>
+                        <li><a href='Login/Registro' runat='server'><span class='con'>Registrarse</span></a></li>
+                    </ul>
+                </li>
+                <li><a href="Home/Nosotros"><span class="con">Acerca de nosotros</span></a></li>
+            </ul>
+        </div>
+        </header>
+        <section id="main">
+            @RenderBody()
+        </section>
+        <footer> &copy; 2012 JRS Software. All Rights Reserved. </footer>
+    </div>
+    <link href="@Url.Content("~/Content/jquery-ui-1.8.21.custom.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/jquery-1.7.2.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery-ui-1.8.21.custom.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/calls.js")" type="text/javascript"></script>
+</body>
+</html>

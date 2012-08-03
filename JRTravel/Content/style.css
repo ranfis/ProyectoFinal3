@@ -1,0 +1,358 @@
+html {
+	background: #0fa1e0;
+	font: bold 11px Helvetica, Arial, sans-serif;
+}
+body {
+	margin: auto;
+	width: 85%;
+	margin-top: 16px;
+	margin-bottom: 16px;
+	border-radius: 16px;
+	
+}
+
+#content {
+	border-right: 1px solid black;
+	border-left: 1px solid black;
+	min-height:500px;
+}
+#main {
+	padding: 8px;
+	padding-top:16px;
+	min-height:500px;
+}
+#sidebar {
+	border-right: 1px solid black;
+	min-height:500px;
+}
+footer {
+	background: #141414;
+	background: -moz-linear-gradient(top, #32323a 0%, #141414 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #32323a), color-stop(100%, #141414));
+	background: -webkit-linear-gradient(top, #32323a 0%, #141414 100%);
+	background: -o-linear-gradient(top, #32323a 0%, #141414 100%);
+	background: -ms-linear-gradient(top, #32323a 0%, #141414 100%);
+	background: linear-gradient(to bottom, #32323a 0%, #141414 100%);
+	border-bottom-left-radius: 6px;
+	border-bottom-right-radius: 6px;
+	border: 1px solid black;
+	color: white;
+	text-align: center;
+	height: 32px;
+}
+h1 {
+	text-align: center;
+}
+.hero-unit {
+	width: 70%;
+	margin: auto;
+}
+#myCarousel {
+	width: 600px;
+	margin: auto;
+	padding-top: 128px;
+}
+div.item {
+	margin: auto;
+	width: 600px;
+	height: 400px;
+}
+.alert {
+	width: 400px;
+}
+.map {
+	width: 800px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #979797;
+	padding: 8px 8px 8px 8px;
+	margin: auto;
+	text-align: center;
+}
+span.con {
+	font: bold 11px Helvetica, Arial, sans-serif;
+	text-shadow: 1px 1px 1px #777;
+	color: #FFF;
+}
+span.dark {
+	text-shadow: 1px 1px 1px white;
+	color: black;
+}
+table.reserv {
+	margin: auto;
+	
+}
+table.vuelos
+{
+    width:100%;
+    
+    
+}
+td.vuelos,th.vuelos
+{
+     text-align:center;
+     height:48px;
+     border-color:White;
+     margin-top:2px;
+     padding-top:16px;
+
+}
+td.right
+{
+    text-align:right;
+}
+.btn-group
+{
+    margin:auto;
+    width:90%;
+    text-align:center;
+}
+
+div.bluePanel 
+{
+    margin:auto;
+	box-shadow: 1px 1px 8px #A6A6A6;
+	background: -webkit-linear-gradient(top, #3e9ed8, #3e9ed8);
+	background: -moz-linear-gradient(top, #3e9ed8, #3e9ed8);
+	background: -ms-linear-gradient(top, #3e9ed8, #3e9ed8);
+	background: -o-linear-gradient(top, #3e9ed8, #3e9ed8);
+	
+	padding: 8px;
+	border: 2px solid white;
+	border-radius: 8px;
+	border-shadow: 0 1px 0 #2F5BB7;
+}
+.mid
+{
+ width: 450px;   
+}
+.full
+{
+ width:90%;
+}
+.tab-pane
+{
+ padding:2px;   
+}
+tr
+{
+ margin: 2px; 
+padding: 2px;    
+
+}
+.modal
+{
+ width:400px;
+ text-align:center;
+   margin-left:-200px;
+}
+.login {
+	padding: 16px;
+	margin: auto;
+	height: 116px;
+}
+
+input.error {
+	background-color: pink;
+	border-color: Red;
+}
+input.error:hover {
+	background-color: white;
+}
+/* MENU */
+.cssmenu ul, .cssmenu li, .cssmenu span, .cssmenu a {
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
+.cssmenu {
+	height: 49px;
+	border-radius: 5px 5px 0 0;
+	-moz-border-radius: 5px 5px 0 0;
+	-webkit-border-radius: 5px 5px 0 0;
+	background: #141414;
+	background: -moz-linear-gradient(top, #32323a 0%, #141414 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #32323a), color-stop(100%, #141414));
+	background: -webkit-linear-gradient(top, #32323a 0%, #141414 100%);
+	background: -o-linear-gradient(top, #32323a 0%, #141414 100%);
+	background: -ms-linear-gradient(top, #32323a 0%, #141414 100%);
+	background: linear-gradient(to bottom, #32323a 0%, #141414 100%);
+	filter: progid :DXImageTransform.Microsoft.Gradient(StartColorStr='#32323a', EndColorStr='#141414', GradientType=0);
+	border-bottom: 2px solid #0fa1e0;
+}
+.cssmenu:after, .cssmenu ul:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+.cssmenu a {
+	background: #141414;
+	background: -moz-linear-gradient(top, #32323a 0%, #141414 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #32323a), color-stop(100%, #141414));
+	background: -webkit-linear-gradient(top, #32323a 0%, #141414 100%);
+	background: -o-linear-gradient(top, #32323a 0%, #141414 100%);
+	background: -ms-linear-gradient(top, #32323a 0%, #141414 100%);
+	background: linear-gradient(to bottom, #32323a 0%, #141414 100%);
+	filter: progid :DXImageTransform.Microsoft.Gradient(StartColorStr='#32323a', EndColorStr='#141414', GradientType=0);
+	color: #ffffff;
+	display: inline-block;
+	font-family: Helvetica, Arial, Verdana, sans-serif;
+	font-size: 12px;
+	line-height: 49px;
+	padding: 0 20px;
+	text-decoration: none;
+}
+.cssmenu ul {
+	list-style: none;
+}
+.cssmenu > ul {
+	float: left;
+}
+.cssmenu > ul > li {
+	float: left;
+}
+.cssmenu > ul > li:hover:after {
+	content: '';
+	display: block;
+	width: 0;
+	height: 0;
+	position: absolute;
+	left: 50%;
+	bottom: 0;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-bottom: 10px solid #0fa1e0;
+	margin-left: -10px;
+}
+.cssmenu > ul > li:first-child a {
+	border-radius: 5px 0 0 0;
+	-moz-border-radius: 5px 0 0 0;
+	-webkit-border-radius: 5px 0 0 0;
+}
+.cssmenu > ul > li:last-child a {
+	border-radius: 0 5px 0 0;
+	-moz-border-radius: 0 5px 0 0;
+	-webkit-border-radius: 0 5px 0 0;
+}
+.cssmenu > ul > li.active a {
+	box-shadow: inset 0 0 3px #000000;
+	-moz-box-shadow: inset 0 0 3px #000000;
+	-webkit-box-shadow: inset 0 0 3px #000000;
+	background: #070707;
+	background: -moz-linear-gradient(top, #26262c 0%, #070707 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #26262c), color-stop(100%, #070707));
+	background: -webkit-linear-gradient(top, #26262c 0%, #070707 100%);
+	background: -o-linear-gradient(top, #26262c 0%, #070707 100%);
+	background: -ms-linear-gradient(top, #26262c 0%, #070707 100%);
+	background: linear-gradient(to bottom, #26262c 0%, #070707 100%);
+	filter: progid :DXImageTransform.Microsoft.Gradient(StartColorStr='#26262c', EndColorStr='#070707', GradientType=0);
+}
+.cssmenu > ul > li:hover > a {
+	background: #070707;
+	background: -moz-linear-gradient(top, #26262c 0%, #070707 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #26262c), color-stop(100%, #070707));
+	background: -webkit-linear-gradient(top, #26262c 0%, #070707 100%);
+	background: -o-linear-gradient(top, #26262c 0%, #070707 100%);
+	background: -ms-linear-gradient(top, #26262c 0%, #070707 100%);
+	background: linear-gradient(to bottom, #26262c 0%, #070707 100%);
+	filter: progid :DXImageTransform.Microsoft.Gradient(StartColorStr='#26262c', EndColorStr='#070707', GradientType=0);
+	box-shadow: inset 0 0 3px #000000;
+	-moz-box-shadow: inset 0 0 3px #000000;
+	-webkit-box-shadow: inset 0 0 3px #000000;
+}
+.cssmenu .has-sub {
+	z-index: 1;
+}
+.cssmenu .has-sub:hover > ul {
+	display: block;
+}
+.cssmenu .has-sub ul {
+	display: none;
+	position: absolute;
+	width: 200px;
+	top: 100%;
+	left: 0;
+}
+.cssmenu .has-sub ul li {
+	*
+	margin-bottom: -1px;
+}
+.cssmenu .has-sub ul li a {
+	background: #0fa1e0;
+	border-bottom: 1px dotted #6fc7ec;
+	filter: none;
+	font-size: 11px;
+	display: block;
+	line-height: 120%;
+	padding: 10px;
+}
+.cssmenu .has-sub ul li:hover a {
+	background: #0c7fb0;
+}
+.cssmenu .has-sub .has-sub:hover > ul {
+	display: block;
+}
+.cssmenu .has-sub .has-sub ul {
+	display: none;
+	position: absolute;
+	left: 100%;
+	top: 0;
+}
+.cssmenu .has-sub .has-sub ul li a {
+	background: #0c7fb0;
+	border-bottom: 1px dotted #6db2d0;
+}
+.cssmenu .has-sub .has-sub ul li a:hover {
+	background: #095c80;
+}
+/* Tables */
+
+.mGrid {
+	width: 100%;
+	background-color: #fff;
+	margin: 5px 0 10px 0;
+	border: solid 1px #525252;
+	border-collapse: collapse;
+}
+.mGrid td {
+	padding: 2px;
+	border: solid 1px #c1c1c1;
+	color: #717171;
+}
+.mGrid th {
+	padding: 4px 2px;
+	color: #fff;
+	background: #424242 url(../../img/grd_head.png) repeat-x top;
+	border-left: solid 1px #525252;
+	font-size: 0.9em;
+}
+.mGrid .alt {
+	background: #fcfcfc url(../../img/grd_alt.png) repeat-x top;
+}
+.mGrid .pgr {
+	background: #424242 url(../../img/grd_pgr.png) repeat-x top;
+}
+.mGrid .pgr table {
+	margin: 5px 0;
+}
+.mGrid .pgr td {
+	border-width: 0;
+	padding: 0 6px;
+	border-left: solid 1px #666;
+	font-weight: bold;
+	color: #fff;
+	line-height: 12px;
+}
+.mGrid .pgr a {
+	color: #666;
+	text-decoration: none;
+}
+.mGrid .pgr a:hover {
+	color: #000;
+	text-decoration: none;
+}
+/* Tables */
+span.super
+{
+ font: bold 24px Helvetica, Arial, sans-serif;  
+}

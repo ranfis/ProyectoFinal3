@@ -1,0 +1,6 @@
+C:\ProyectoFinal3\JRTravel\bin\JRTravel.dll
+C:\ProyectoFinal3\JRTravel\bin\JRTravel.pdb
+C:\ProyectoFinal3\JRTravel\bin\EntityFramework.xml
+C:\ProyectoFinal3\JRTravel\obj\Debug\JRTravel.csprojResolveAssemblyReference.cache
+C:\ProyectoFinal3\JRTravel\obj\Debug\JRTravel.dll
+C:\ProyectoFinal3\JRTravel\obj\Debug\JRTravel.pdb
